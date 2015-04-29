@@ -11,7 +11,7 @@
 @prefix locn:    <http://www.w3.org/ns/locn#>.
 @prefix schema: <http://schema.org/>.
 @prefix eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> .
-@prefix bfs: <http://data.example.org/id/>.
+@prefix bfs: <http://data.admin.cd/id/>.
 
 <#Canton>
   rml:logicalSource [
@@ -21,7 +21,7 @@
     rml:iterator "/eCH-0071:nomenclature/cantons/canton" ]; 
 
   rr:subjectMap [
-    rr:template "http://data.example.org/id/canton/{cantonId}";
+    rr:template "http://data.admin.ch/id/canton/{cantonId}";
     rr:class eCH-0071:Canton ;
   ];
 
@@ -36,6 +36,7 @@
     rr:predicate eCH-0071:cantonId;
     rr:objectMap [
       rml:reference "/canton/cantonId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -63,7 +64,7 @@
     rml:referenceFormulation ql:XPath;    rml:iterator "/eCH-0071:nomenclature/districts/district" ]; 
 
   rr:subjectMap [
-    rr:template "http://data.example.org/id/district/{districtId}";
+    rr:template "http://data.admin.ch/id/district/{districtId}";
     rr:class eCH-0071:District ;
   ];
 
@@ -71,6 +72,7 @@
     rr:predicate eCH-0071:districtHistId;
     rr:objectMap [
       rml:reference "/district/districtHistId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -78,6 +80,7 @@
     rr:predicate eCH-0071:cantonId;
     rr:objectMap [
       rml:reference "/district/cantonId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -85,6 +88,7 @@
     rr:predicate eCH-0071:districtId;
     rr:objectMap [
       rml:reference "/district/districtId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -106,6 +110,7 @@
     rr:predicate eCH-0071:districtEntryMode;
     rr:objectMap [
       rml:reference "/district/districtEntryMode";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -113,6 +118,7 @@
     rr:predicate eCH-0071:districtAdmissionNumber;
     rr:objectMap [
       rml:reference "/district/districtAdmissionNumber";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -120,6 +126,7 @@
     rr:predicate eCH-0071:districtAdmissionMode;
     rr:objectMap [
       rml:reference "/district/districtAdmissionMode";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -135,6 +142,7 @@
     rr:predicate eCH-0071:districtAbolitionNumber;
     rr:objectMap [
       rml:reference "/district/districtAbolitionNumber";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -142,6 +150,7 @@
     rr:predicate eCH-0071:districtAbolitionMode;
     rr:objectMap [
       rml:reference "/district/districtAbolitionMode";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -171,7 +180,7 @@
     rml:iterator "/eCH-0071:nomenclature/municipalities/municipality" ]; 
 
   rr:subjectMap [
-    rr:template "http://data.example.org/id/municipality/{historyMunicipalityId}";
+    rr:template "http://data.admin.ch/id/municipality/{historyMunicipalityId}";
     rr:class eCH-0071:Municipality ;
   ];
 
@@ -179,6 +188,7 @@
     rr:predicate eCH-0071:historyMunicipalityId;
     rr:objectMap [
       rml:reference "/municipality/historyMunicipalityId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -186,6 +196,7 @@
     rr:predicate eCH-0071:districtHistId;
     rr:objectMap [
       rml:reference "/municipality/districtHistId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -200,6 +211,7 @@
     rr:predicate eCH-0071:municipalityId;
     rr:objectMap [
       rml:reference "/municipality/municipalityId";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -221,6 +233,7 @@
     rr:predicate eCH-0071:municipalityEntryMode;
     rr:objectMap [
       rml:reference "/municipality/municipalityEntryMode";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -228,6 +241,7 @@
     rr:predicate eCH-0071:municipalityStatus;
     rr:objectMap [
       rml:reference "/municipality/municipalityStatus";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -235,6 +249,7 @@
     rr:predicate eCH-0071:municipalityAdmissionNumber;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionNumber";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -242,6 +257,7 @@
     rr:predicate eCH-0071:municipalityAdmissionMode;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionMode";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -258,6 +274,7 @@
     rr:predicate eCH-0071:municipalityAbolitionNumber;
     rr:objectMap [
       rml:reference "/municipality/municipalityAbolitionNumber";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -265,6 +282,7 @@
     rr:predicate eCH-0071:municipalityAbolitionMode;
     rr:objectMap [
       rml:reference "/municipality/municipalityAbolitionMode";
+      rr:datatype xsd:integer ;
     ]
  ] ;
 
