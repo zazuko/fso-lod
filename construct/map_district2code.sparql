@@ -12,14 +12,22 @@ PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX bfs: <http://data.example.org/id/>
 
+# Maps the mandatory fields to respective URIs
+# Does not include Abolition entries as these are optional
+
 CONSTRUCT {
-  ?disturi eCH-0071:districEntryModeUri ?concepturi .
+  ?disturi eCH-0071:districEntryModeUri ?districtEntryModeUri .
+  ?disturi eCH-0071:districtAdmissionModeUri ?districtAdmissionModeUri .
 }
 WHERE {
   ?disturi a eCH-0071:District;
-  eCH-0071:districtEntryMode ?code .
-
-  ?concepturi a skos:Concept ;
-  skos:notation ?code .
-
+  	eCH-0071:districtEntryMode ?districtEntryMode ;
+  	eCH-0071:districtAdmissionMode ?districtAdmissionMode .
+  
+  ?districtEntryModeUri a skos:Concept ;
+  	skos:notation ?districtEntryMode .
+  
+  ?districtAdmissionModeUri a skos:Concept ;
+  	skos:notation ?districtAdmissionMode .
+  
 }
