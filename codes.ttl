@@ -1,4 +1,4 @@
-@base <http://data.admin.ch/id/code/> .
+@base <http://data.admin.ch/id/code/ech-0071/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -7,76 +7,76 @@
 
 ## TODO 7: Status
 
-<histcode11> a skos:Concept ;
+<11> a skos:Concept ;
 skos:prefLabel "Politische Gemeinde"@de ;
 skos:altLabel "Gemeinde"@de ;
 skos:notation 11 .
 
-<histcode12> a skos:Concept ;
+<12> a skos:Concept ;
 skos:prefLabel "Gemeindefreies Gebiet"@de ;
 skos:altLabel "GDE-freies Gebiet"@de ;
 skos:notation 12 .
 
-<histcode13> a skos:Concept ;
+<13> a skos:Concept ;
 skos:prefLabel "Kantonaler Seeanteil"@de ;
 skos:altLabel "Kant. Seeanteil"@de ;
 skos:notation 13 .
 
-<histcode15> a skos:Concept ;
+<15> a skos:Concept ;
 skos:prefLabel "Bezirk"@de ;
 skos:notation 15 .
 
-<histcode16> a skos:Concept ;
+<16> a skos:Concept ;
 skos:prefLabel "Kanton ohne Bezirksunterteilung"@de ;
 skos:altLabel "Kanton"@de ;
 skos:notation 16 .
 
-<histcode17> a skos:Concept ;
+<17> a skos:Concept ;
 skos:prefLabel "Bezirksfreies Gebiet"@de ;
 skos:altLabel "Bezifksfrei"@de ;
 skos:notation 17 .
 
-<histcode20> a skos:Concept ;
+<20> a skos:Concept ;
 skos:prefLabel "Ersterfassung Gemeinde/Bezirk"@de ;
 skos:altLabel "Ersterfassung GDE/BEZ"@de ;
 skos:notation 20 .
 
-<histcode21> a skos:Concept ;
+<21> a skos:Concept ;
 skos:prefLabel "Neugründung Gemeinde/Bezirk"@de ;
 skos:altLabel "Neugründung GDE/BEZ"@de ;
 skos:notation 21 .
 
-<histcode22> a skos:Concept ;
+<22> a skos:Concept ;
 skos:prefLabel "Namensänderung Bezirk"@de ;
 skos:altLabel "Namensänderung BEZ"@de ;
 skos:notation 22 .
 
-<histcode23> a skos:Concept ;
+<23> a skos:Concept ;
 skos:prefLabel "Namensänderung Gemeinde"@de ;
 skos:altLabel "Namensänderung GDE"@de ;
 skos:notation 23 .
 
-<histcode24> a skos:Concept ;
+<24> a skos:Concept ;
 skos:prefLabel "Neue Bezirks-/Kantonszuteilung"@de ;
 skos:altLabel "Neuer BEZ/KT"@de ;
 skos:notation 24 .
 
-<histcode26> a skos:Concept ;
+<26> a skos:Concept ;
 skos:prefLabel "Gebietsänderung Gemeinde"@de ;
 skos:altLabel "Gebietsänderung GDE"@de ;
 skos:notation 26 .
 
-<histcode27> a skos:Concept ;
+<27> a skos:Concept ;
 skos:prefLabel "Formale Neunummerierung Gemeinde/Bezirk"@de ;
 skos:altLabel "Neunummerierung GDE/BEZ"@de ;
 skos:notation 27 .
 
-<histcode29> a skos:Concept ;
+<29> a skos:Concept ;
 skos:prefLabel "Aufhebung Gemeinde/Bezirk"@de ;
 skos:altLabel "Aufhebung GDE/BEZ"@de ;
 skos:notation 29 .
 
-<histcode30> a skos:Concept ;
+<30> a skos:Concept ;
 skos:prefLabel "Mutation annulliert"@de ;
 skos:altLabel "Mutation annulliert"@de ;
 skos:notation 30 .
