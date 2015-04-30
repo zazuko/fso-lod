@@ -1,0 +1,28 @@
+PREFIX rr:     <http://www.w3.org/ns/r2rml#>
+PREFIX rml:    <http://semweb.mmlab.be/ns/rml#> 
+PREFIX ql:     <http://semweb.mmlab.be/ns/ql#> 
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX oslo:   <http://purl.org/oslo/ns/localgov#>
+PREFIX adms:   <http://www.w3.org/ns/adms#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#> 
+PREFIX vcard:  <http://www.w3.org/2006/vcard/ns#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX locn:    <http://www.w3.org/ns/locn#>
+PREFIX schema: <http://schema.org/>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+PREFIX bfs: <http://data.example.org/id/>
+
+# Maps the optional fields to respective URIs
+# Only includes Abolition entries
+
+CONSTRUCT {
+     ?disturi eCH-0071:districtAbolitionMode ?districtAbolitionModeUri .
+
+}
+WHERE {
+  ?disturi a eCH-0071:District;
+    eCH-0071:districtAbolitionModeId ?districtAbolitionMode .
+  
+  ?districtAbolitionModeUri a skos:Concept ;
+    skos:notation ?districtAbolitionMode .
+}
