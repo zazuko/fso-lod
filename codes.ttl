@@ -84,12 +84,12 @@ skos:notation 30 .
 <s0> a skos:Concept ;
 skos:prefLabel "Status provisorisch"@de ;
 skos:notation 0 ;
-skos:note "Mutationen, welche noch nicht alle Verfahren auf Stufe Gemeinde, Kanton und Bund durchlaufen haben (0 = provisorisch). Hinweise zur Selektion der Gemeindestände sind in Kapitel 4 (Seite 14ff) enthalten."
+skos:note "Mutationen, welche noch nicht alle Verfahren auf Stufe Gemeinde, Kanton und Bund durchlaufen haben (0 = provisorisch). Hinweise zur Selektion der Gemeindestände sind in Kapitel 4 (Seite 14ff) enthalten." .
 
 <s1> a skos:Concept ;
 skos:prefLabel "Status definitiv"@de ;
 skos:notation 1 ;
-skos:note "Mutationen, welche alle Verfahren auf Stufe Gemeinde, Kanton und Bund durchlaufen haben (1 = definitiv). Hinweise zur Selektion der Gemeindestände sind in Kapitel 4 (Seite 14ff) enthalten."
+skos:note "Mutationen, welche alle Verfahren auf Stufe Gemeinde, Kanton und Bund durchlaufen haben (1 = definitiv). Hinweise zur Selektion der Gemeindestände sind in Kapitel 4 (Seite 14ff) enthalten." .
 
 # TODO ev. Mutationstypen noch aufnehmen, siehe Seite 17 in der Doku. Ergibt sich aus den Codes
 

@@ -239,7 +239,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityStatus;
+    rr:predicate eCH-0071:municipalityStatusId;
     rr:objectMap [
       rml:reference "/municipality/municipalityStatus";
       rr:datatype xsd:integer ;
