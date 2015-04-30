@@ -107,7 +107,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtEntryMode;
+    rr:predicate eCH-0071:districtEntryModeId;
     rr:objectMap [
       rml:reference "/district/districtEntryMode";
       rr:datatype xsd:integer ;
@@ -123,7 +123,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtAdmissionMode;
+    rr:predicate eCH-0071:districtAdmissionModeId;
     rr:objectMap [
       rml:reference "/district/districtAdmissionMode";
       rr:datatype xsd:integer ;
@@ -147,7 +147,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtAbolitionMode;
+    rr:predicate eCH-0071:districtAbolitionModeId;
     rr:objectMap [
       rml:reference "/district/districtAbolitionMode";
       rr:datatype xsd:integer ;
@@ -230,7 +230,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityEntryMode;
+    rr:predicate eCH-0071:municipalityEntryModeId;
     rr:objectMap [
       rml:reference "/municipality/municipalityEntryMode";
       rr:datatype xsd:integer ;
@@ -254,7 +254,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityAdmissionMode;
+    rr:predicate eCH-0071:municipalityAdmissionModeId;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionMode";
       rr:datatype xsd:integer ;
@@ -279,7 +279,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityAbolitionMode;
+    rr:predicate eCH-0071:municipalityAbolitionModeId;
     rr:objectMap [
       rml:reference "/municipality/municipalityAbolitionMode";
       rr:datatype xsd:integer ;
