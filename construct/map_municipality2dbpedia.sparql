@@ -1,0 +1,25 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+
+CONSTRUCT {
+   ?munuri owl:sameAs ?dbpuri ;
+}
+WHERE
+{
+   SERVICE <http://dbpedia.org/sparql>
+   {
+     ?dbpuri dbo:country dbr:Switzerland ;
+     dbp:municipalityCode ?municipalityId .
+   }
+
+   ?munuri a eCH-0071:Municipality;
+       eCH-0071:municipalityId ?municipalityId .
+   MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
+
+}
