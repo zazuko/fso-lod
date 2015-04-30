@@ -16,13 +16,13 @@ PREFIX bfs: <http://data.example.org/id/>
 # Does not include Abolition entries as these are optional
 
 CONSTRUCT {
-  ?disturi eCH-0071:districEntryModeUri ?districtEntryModeUri .
-  ?disturi eCH-0071:districtAdmissionModeUri ?districtAdmissionModeUri .
+  ?disturi eCH-0071:districEntryMode ?districtEntryModeUri .
+  ?disturi eCH-0071:districtAdmissionMode ?districtAdmissionModeUri .
 }
 WHERE {
   ?disturi a eCH-0071:District;
-  	eCH-0071:districtEntryMode ?districtEntryMode ;
-  	eCH-0071:districtAdmissionMode ?districtAdmissionMode .
+  	eCH-0071:districtEntryModeId ?districtEntryMode ;
+  	eCH-0071:districtAdmissionModeId ?districtAdmissionMode .
   
   ?districtEntryModeUri a skos:Concept ;
   	skos:notation ?districtEntryMode .
