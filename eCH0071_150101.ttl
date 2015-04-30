@@ -16,9 +16,9 @@
 <#Canton>
   rml:logicalSource [
     rml:source "eCH0071_150101.xml";
-
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/cantons/canton" ]; 
+    rml:iterator "/eCH-0071:nomenclature/cantons/canton"
+  ]; 
 
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/canton/{cantonId}";
@@ -60,11 +60,12 @@
 <#District>
   rml:logicalSource [
     rml:source "eCH0071_150101.xml";
-
-    rml:referenceFormulation ql:XPath;    rml:iterator "/eCH-0071:nomenclature/districts/district" ]; 
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "/eCH-0071:nomenclature/districts/district"
+  ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/district/{districtId}";
+    rr:template "http://data.admin.ch/id/district/{districtHistId}";
     rr:class eCH-0071:District ;
   ];
 
@@ -175,9 +176,9 @@
  <#Municipality>
   rml:logicalSource [
     rml:source "eCH0071_150101.xml";
-
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality" ]; 
+    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality"
+  ]; 
 
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/municipality/{historyMunicipalityId}";
