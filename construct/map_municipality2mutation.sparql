@@ -14,8 +14,8 @@ WHERE {
   {
     ?munuri a eCH-0071:Municipality;
       eCH-0071:municipalityAdmissionNumber ?municipalityAdmissionNumber .
-    MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
-    MINUS { ?munuri eCH-0071:municipalityAdmissionNumber 1000 . } 
+#    MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
+#    MINUS { ?munuri eCH-0071:municipalityAdmissionNumber 1000 . } 
   }
   ?oldmunuri  eCH-0071:municipalityAbolitionNumber ?municipalityAdmissionNumber .
 }
