@@ -21,7 +21,7 @@ WHERE {
   ?cantonuri a eCH-0071:Canton;
   eCH-0071:cantonAbbreviation ?cantonid .
 
-  ?munuri a eCH-0071:Municipality;
+  ?munuri a eCH-0071:HistoryMunicipality;
   eCH-0071:cantonAbbreviation ?cantonid . 
 
 

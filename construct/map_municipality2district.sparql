@@ -18,7 +18,7 @@ CONSTRUCT {
 }
 WHERE {
 
-  ?munuri a eCH-0071:Municipality;
+  ?munuri a eCH-0071:HistoryMunicipality;
   eCH-0071:districtHistId ?districtid . 
 
   ?districturi a eCH-0071:District;

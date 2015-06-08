@@ -20,7 +20,7 @@ CONSTRUCT {
   ?munuri eCH-0071:municipalityAdmissionMode ?municipalityAdmissionModeUri .
 }
 WHERE {
-  ?munuri a eCH-0071:Municipality;
+  ?munuri a eCH-0071:HistoryMunicipality;
     eCH-0071:municipalityEntryModeId ?municipalityEntryMode ;
     eCH-0071:municipalityAdmissionModeId ?municipalityAdmissionMode .
   

@@ -10,6 +10,7 @@
 @prefix adms:    <http://www.w3.org/ns/adms#>.
 @prefix locn:    <http://www.w3.org/ns/locn#>.
 @prefix schema: <http://schema.org/>.
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
 @prefix eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> .
 @prefix bfs: <http://data.admin.cd/id/>.
 
@@ -21,7 +22,7 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/canton/{cantonId}";
+    rr:template "http://data.admin.ch/id/canton/{cantonAbbreviation}";
     rr:class eCH-0071:Canton ;
   ];
 
@@ -171,9 +172,9 @@
     ]
  ] .
 
- # Municipality
+ # historyMunicipality
 
- <#Municipality>
+ <#historyMunicipality>
   rml:logicalSource [
     rml:source "eCH0071_150101.xml";
     rml:referenceFormulation ql:XPath;
@@ -181,9 +182,17 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/municipality/{historyMunicipalityId}";
-    rr:class eCH-0071:Municipality ;
+    rr:template "http://data.admin.ch/id/historymunicipality/{historyMunicipalityId}";
+    rr:class eCH-0071:HistoryMunicipality ;
   ];
+
+  rr:predicateObjectMap [
+    rr:predicate eCH-0071:historyMunicipalityId;
+    rr:objectMap [
+      rml:reference "/municipality/historyMunicipalityId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
 
   rr:predicateObjectMap [
     rr:predicate eCH-0071:historyMunicipalityId;
@@ -299,6 +308,42 @@
     rr:predicate eCH-0071:municipalityDateOfChange;
     rr:objectMap [
       rml:reference "/municipality/municipalityDateOfChange";
+      rr:datatype xsd:date ;
+    ]
+ ] .
+
+ # Municipality
+
+ <#Municipality>
+  rml:logicalSource [
+    rml:source "eCH0071_150101.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality"
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://data.admin.ch/id/municipality/{municipalityId}";
+    rr:class eCH-0071:Municipality ;
+  ].
+
+ # Event
+
+ <#Event>
+  rml:logicalSource [
+    rml:source "eCH0071_150101.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality"
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://data.admin.ch/id/event/{municipalityAdmissionNumber}";
+    rr:class sem:Event ;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate sem:hasTime;
+    rr:objectMap [
+      rml:reference "/municipality/municipalityAdmissionDate";
       rr:datatype xsd:date ;
     ]
  ] .

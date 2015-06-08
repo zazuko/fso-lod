@@ -1,0 +1,34 @@
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX schema: <http://schema.org/>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+
+# Maps the status of the Municipality entry to a URI
+
+CONSTRUCT {
+  ?currentmunuri eCH-0071:currentHistoryMunicipality ?currenthistmunuri .
+  ?oldmunuri eCH-0071:previousHistoryMunicipality ?oldhistmunuri .
+}
+WHERE {
+  {
+    # Those who have a municipalityAbolisionNumber
+    ?oldhistmunuri a eCH-0071:HistoryMunicipality ; 
+      eCH-0071:municipalityId ?municipalityId ;
+      eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber .
+
+    ?munuri a eCH-0071:Municipality ;
+      eCH-0071:municipalityId ?municipalityId .
+  }
+  {
+
+    ?currenthistmunuri a eCH-0071:HistoryMunicipality ; 
+      eCH-0071:municipalityId ?municipalityId .
+    MINUS { ?currenthistmunuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
+
+
+    ?currentmunuri a eCH-0071:Municipality ;
+      eCH-0071:municipalityId ?municipalityId .
+
+  }
+}

@@ -18,7 +18,7 @@ CONSTRUCT {
   ?munuri eCH-0071:municipalityStatus ?municipalityStatusUri .
 }
 WHERE {
-    ?munuri a eCH-0071:Municipality;
+    ?munuri a eCH-0071:HistoryMunicipality;
     eCH-0071:municipalityStatusId ?municipalityStatusId .
  
     ?municipalityStatusUri a skos:Concept ;

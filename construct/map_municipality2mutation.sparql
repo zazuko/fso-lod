@@ -12,7 +12,7 @@ CONSTRUCT {
 }
 WHERE {
   {
-    ?munuri a eCH-0071:Municipality;
+    ?munuri a eCH-0071:HistoryMunicipality;
       eCH-0071:municipalityAdmissionNumber ?municipalityAdmissionNumber .
 #    MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
 #    MINUS { ?munuri eCH-0071:municipalityAdmissionNumber 1000 . } 
