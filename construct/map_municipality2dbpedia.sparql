@@ -18,8 +18,9 @@ WHERE
      dbp:municipalityCode ?municipalityId .
    }
 
-   ?munuri a eCH-0071:HistoryMunicipality;
+   ?munuri a eCH-0071:Municipality;
        eCH-0071:municipalityId ?municipalityId .
-   MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
+# This should no longer be necessary as we do it on the Municipality, not on HistoryMunicipality
+#   MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
 
 }
