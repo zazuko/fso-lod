@@ -324,7 +324,15 @@
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/municipality/{municipalityId}";
     rr:class eCH-0071:Municipality ;
-  ].
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate eCH-0071:municipalityId;
+    rr:objectMap [
+      rml:reference "/municipality/municipalityId";
+      rr:datatype xsd:integer ;
+    ]
+ ].
 
  # Event
 
@@ -345,5 +353,13 @@
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionDate";
       rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate eCH-0071:eventId;
+    rr:objectMap [
+      rml:reference "/municipality/municipalityAdmissionNumber";
+      rr:datatype xsd:integer ;
     ]
  ] .
