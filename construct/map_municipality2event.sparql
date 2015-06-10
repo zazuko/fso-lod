@@ -8,25 +8,28 @@ PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
 # Maps Event to HistoryMunicipality
 
 CONSTRUCT {
+
+  ?eventabolissionuri sem:hasActor ?histmunabolissionuri .
   ?eventadmissionuri sem:hasActor ?histmunadmissionuri .
-  ?eventabolissionuri sem:hasActor ?histmunadmissionuri .
-  ?histmunadmissionuri sem:hasEvent ?eventadmissionuri .
-  ?histmunabolissionuri sem:hasEvent ?eventabolissionuri .
+  ?histmunabolissionuri eCH-0071:hasEvent ?eventabolissionuri .
+  ?histmunadmissionuri eCH-0071:hasEvent ?eventadmissionuri .
+
 }
 WHERE {
   {
-    ?histmunadmissionuri a eCH-0071:HistoryMunicipality ;
-      eCH-0071:municipalityAdmissionNumber ?eventid .
-
-    ?eventadmissionuri a sem:Event ;
-      eCH-0071:eventId ?eventid .
-  }
-  {
-    ?histmunabolissionuri a eCH-0071:HistoryMunicipality ;
-      eCH-0071:municipalityAbolitionNumber ?eventid .
-
     ?eventabolissionuri a sem:Event ;
       eCH-0071:eventId ?eventid .
+    
+    ?histmunabolissionuri a eCH-0071:HistoryMunicipality ;
+      eCH-0071:municipalityAbolitionNumber ?eventid ;
 
   }
+    {
+    ?eventadmissionuri a sem:Event ;
+      eCH-0071:eventId ?eventid .
+    
+    ?histmunadmissionuri a eCH-0071:HistoryMunicipality ;
+      eCH-0071:municipalityAdmissionNumber ?eventid .
+  }
+
 }
