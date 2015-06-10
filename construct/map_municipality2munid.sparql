@@ -4,31 +4,15 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 
-# Maps the status of the Municipality entry to a URI
+# Maps Municipality to HistoryMunicipality
 
 CONSTRUCT {
-  ?currentmunuri eCH-0071:currentHistoryMunicipality ?currenthistmunuri .
-  ?oldmunuri eCH-0071:previousHistoryMunicipality ?oldhistmunuri .
+  ?munuri eCH-0071:historyMunicipality ?histmunuri .
 }
 WHERE {
-  {
-    # Those who have a municipalityAbolisionNumber
-    ?oldhistmunuri a eCH-0071:HistoryMunicipality ; 
-      eCH-0071:municipalityId ?municipalityId ;
-      eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber .
+  ?histmunuri a eCH-0071:HistoryMunicipality ;
+    eCH-0071:municipalityId ?municipalityId .
 
-    ?munuri a eCH-0071:Municipality ;
-      eCH-0071:municipalityId ?municipalityId .
-  }
-  {
-
-    ?currenthistmunuri a eCH-0071:HistoryMunicipality ; 
-      eCH-0071:municipalityId ?municipalityId .
-    MINUS { ?currenthistmunuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
-
-
-    ?currentmunuri a eCH-0071:Municipality ;
-      eCH-0071:municipalityId ?municipalityId .
-
-  }
+  ?munuri a eCH-0071:Municipality ;
+    eCH-0071:municipalityId ?municipalityId .
 }
