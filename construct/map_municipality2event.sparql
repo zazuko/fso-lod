@@ -5,15 +5,28 @@ PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
 
-# Maps Municipality to HistoryMunicipality
+# Maps Event to HistoryMunicipality
 
 CONSTRUCT {
-  ?eventuri sem:hasActor ?histmunuri
+  ?eventadmissionuri sem:hasActor ?histmunadmissionuri .
+  ?eventabolissionuri sem:hasActor ?histmunadmissionuri .
+  ?histmunadmissionuri sem:hasEvent ?eventadmissionuri .
+  ?histmunabolissionuri sem:hasEvent ?eventabolissionuri .
 }
 WHERE {
-  ?histmunuri a eCH-0071:HistoryMunicipality ;
-    eCH-0071:municipalityAdmissionNumber ?eventid .
+  {
+    ?histmunadmissionuri a eCH-0071:HistoryMunicipality ;
+      eCH-0071:municipalityAdmissionNumber ?eventid .
 
-  ?eventuri a sem:Event ;
-    eCH-0071:eventId ?eventid .
+    ?eventadmissionuri a sem:Event ;
+      eCH-0071:eventId ?eventid .
+  }
+  {
+    ?histmunabolissionuri a eCH-0071:HistoryMunicipality ;
+      eCH-0071:municipalityAbolitionNumber ?eventid .
+
+    ?eventabolissionuri a sem:Event ;
+      eCH-0071:eventId ?eventid .
+
+  }
 }
