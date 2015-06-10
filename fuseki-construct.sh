@@ -11,3 +11,4 @@ curl -H "Accept: application/n-triples" --data-urlencode query@construct/map_mun
 curl -H "Accept: application/n-triples" --data-urlencode query@construct/map_municipality2status.sparql http://localhost:3030/bfstdb/sparql -o out/map_municipality2status.nt
 curl -H "Accept: application/n-triples" --data-urlencode query@construct/map_municipality2event.sparql http://localhost:3030/bfstdb/sparql -o out/map_municipality2event.nt
 curl -H "Accept: application/n-triples" --data-urlencode query@construct/map_municipality2munid.sparql http://localhost:3030/bfstdb/sparql -o out/map_municipality2munid.nt
+curl -H "Accept: application/n-triples" --data-urlencode query@construct/map_municipality2classes.sparql http://localhost:3030/bfstdb/sparql -o out/map_municipality2classes.nt

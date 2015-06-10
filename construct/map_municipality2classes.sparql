@@ -1,0 +1,29 @@
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX schema: <http://schema.org/>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX code: <http://data.admin.ch/id/code/ech-0071/>
+
+# Map HistoryMunicipality to more specific classes
+
+CONSTRUCT {
+	?gemeinde a eCH-0071:SwissMunicipality .
+	?gemeindefrei a eCH-0071:Gemeindefrei .
+	?seeanteil a eCH-0071:Seeanteil .
+}
+WHERE {
+  # Politische Gemeinde
+  ?gemeinde a eCH-0071:HistoryMunicipality ;
+    eCH-0071:municipalityEntryModeId 11 .
+  
+  # Gemeindefreies Gebiet
+  ?gemeindefrei a eCH-0071:HistoryMunicipality ;
+    eCH-0071:municipalityEntryModeId 12 .
+  
+   # Kantonaler Seeanteil
+  ?seeanteil a eCH-0071:HistoryMunicipality ;
+    eCH-0071:municipalityEntryModeId 13 .
+
+}
