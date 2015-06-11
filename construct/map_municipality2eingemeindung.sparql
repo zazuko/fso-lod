@@ -8,6 +8,8 @@ PREFIX code: <http://data.admin.ch/id/code/ech-0071/>
 
 # (1) Eingemeindung: [A] + [B] -> [A+]
 
+## TODO das stimmt noch nicht, ist so nur Thurgau
+
 #SELECT COUNT(*)
 CONSTRUCT {
  ?eventuri a eCH-0071:EingemeindungEvent ;
@@ -29,7 +31,7 @@ WHERE {
   ?newmunuri a eCH-0071:HistoryMunicipality ;
     eCH-0071:municipalityAdmissionNumber ?eventid ;
     eCH-0071:municipalityAdmissionModeId 26 ;
-    eCH-0071:municipalityId ?abandonnedmunicipalityId .
+    eCH-0071:municipalityId ?abandonnedmunicipalityId . ## TODO das muss admissionmunicipalityId werden
   
   ?eventuri a sem:Event ;
     eCH-0071:eventId ?eventid .
