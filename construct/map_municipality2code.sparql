@@ -16,7 +16,7 @@ PREFIX bfs: <http://data.example.org/id/>
 # Does not include Abolition entries as these are optional
 
 CONSTRUCT {
-  ?munuri eCH-0071:municipalityMode ?municipalityEntryModeUri .
+  ?munuri eCH-0071:municipalityEntryMode ?municipalityEntryModeUri .
   ?munuri eCH-0071:municipalityAdmissionMode ?municipalityAdmissionModeUri .
 }
 WHERE {
