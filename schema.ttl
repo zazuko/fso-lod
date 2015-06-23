@@ -50,7 +50,7 @@
     rdfs:label "Mutation"@de .
 
 <canton> a rdf:Property ;
-    rdfs:label "Canton it belongs to"@en ;
+    rdfs:label "Canton affiliation"@en ;
     rdfs:label "Kantonszugehörigkeit"@de ;
     rdfs:domain
         <MunicipalityVersion>,
@@ -60,7 +60,7 @@
 <cantonAbbreviation> a rdf:Property ;
     rdfs:label "Canton abbreviation"@en ;
     rdfs:label "Kantonskürzel"@de ;
-    rdfs:comment "Das Merkmal «Kantonskürzel» enthält das allgemein, z.B. auf Autokennzeichen verwendete Kürzel für Kantone (ZH = Zürich / BE = Bern / etc.)."@de;
+    rdfs:comment "Das Merkmal Kantonskürzel enthält das allgemein, z.B. auf Autokennzeichen verwendete Kürzel für Kantone (ZH = Zürich / BE = Bern / etc.)."@de;
     rdfs:domain <Canton> ;
     rdfs:range rdfs:Literal .
 
@@ -81,7 +81,7 @@
     rdfs:range rdfs:Literal .
 
 <district> a rdf:Property ;
-    rdfs:label "District it belongs to"@en ;
+    rdfs:label "District affiliation"@en ;
     rdfs:label "Bezirkszugehörigkeit"@de ;
     rdfs:domain <MunicipalityVersion> ;
     rdfs:range <DistrictEntryVersion> .
