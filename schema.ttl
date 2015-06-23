@@ -16,14 +16,17 @@
     rdfs:label "Historisierte Gemeinde"@de .
 
 <PoliticalMunicipality> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <MunicipalityVersion> ;
     rdfs:label "Political municipality"@en ;
     rdfs:label "Politische Gemeinde"@de .
 
 <MunicipalityFreeArea> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <MunicipalityVersion> ;
     rdfs:label "Municipality free area"@en ;
     rdfs:label "Gemeindefreies Gebiet"@de .
 
 <CantonalLakePortion> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <MunicipalityVersion> ;
     rdfs:label "Cantonal lake portion"@en ;
     rdfs:label "Kantonaler Seeanteil"@de .
 
@@ -40,7 +43,18 @@
     rdfs:label "Versioned district"@en ;
     rdfs:label "Historisierter Bezirk"@de .
 
+<District> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <DistrictEntryVersion> ;
+    rdfs:label "District"@en ;
+    rdfs:label "Bezirk"@de .
+
+<DistrictlessCanton> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <DistrictEntryVersion> ;
+    rdfs:label "Canton without district"@en ;
+    rdfs:label "Kanton ohne Bezirksunterteilung"@de .
+
 <DistrictFreeArea> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <DistrictEntryVersion> ;
     rdfs:label "District free area"@en ;
     rdfs:label "Bezirksfreies Gebiet"@de .
 
@@ -52,9 +66,7 @@
 <canton> a rdf:Property ;
     rdfs:label "Canton affiliation"@en ;
     rdfs:label "Kantonszugehörigkeit"@de ;
-    rdfs:domain
-        <MunicipalityVersion>,
-        <DistrictEntryVersion> ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <MunicipalityVersion> <DistrictEntryVersion> ) ] ;
     rdfs:range <Canton> .
 
 <cantonAbbreviation> a rdf:Property ;
@@ -67,17 +79,13 @@
 <longName> a rdf:Property ;
     rdfs:label "District name or official municipality name"@en ;
     rdfs:label "Bezirkname oder amtlicher Gemeindename"@de ;
-    rdfs:domain <Canton> ,
-                <MunicipalityVersion>,
-                <DistrictEntryVersion> ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <Canton> <MunicipalityVersion> <DistrictEntryVersion> ) ] ;
     rdfs:range rdfs:Literal .
 
 <shortName> a rdf:Property ;
     rdfs:label "Short district/municipality name"@en ;
     rdfs:label "Kurzer Bezirk/Gemeindename"@de ;
-    rdfs:domain <Canton> ,
-                <MunicipalityVersion>,
-                <DistrictEntryVersion> ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <Canton> <MunicipalityVersion> <DistrictEntryVersion> ) ] ;
     rdfs:range rdfs:Literal .
 
 <district> a rdf:Property ;
@@ -89,37 +97,24 @@
 <abolitionEvent> a rdf:Property ;
     rdfs:label "Mutation event"@en ;
     rdfs:label "Mutationsevent"@de ;
-    rdfs:domain <MunicipalityVersion>,
-                <DistrictEntryVersion> ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <MunicipalityVersion> <DistrictEntryVersion> ) ] ;
     rdfs:range <ChangeEvent> .
 
 <admissionMode> a rdf:Property ;
     rdfs:label "Admission type"@en ;
     rdfs:label "Art der Aufnahme"@de ;
-    rdfs:domain <MunicipalityVersion>,
-                <DistrictEntryVersion> ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <MunicipalityVersion> <DistrictEntryVersion> ) ] ;
     rdfs:range rdfs:Resource .
 
 <abolitionMode> a rdf:Property ;
     rdfs:label "Abolition type"@en ;
     rdfs:label "Art der Aufhebung"@de ;
-    rdfs:domain <MunicipalityVersion>,
-                <DistrictEntryVersion> ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <MunicipalityVersion> <DistrictEntryVersion> ) ] ;
     rdfs:range rdfs:Resource .
 
 <id> a rdf:Property ;
     rdfs:label "Identifier"@en ;
     rdfs:label "Identifikator"@de ;
-    rdfs:domain <Municipality>,
-                <MunicipalityVersion>,
-                <PoliticalMunicipality>,
-                <CantonalLakePortion>,
-                <Canton>,
-                <DistrictEntry>,
-                <DistrictEntryVersion>,
-                <District>,
-                <DistrictFreeArea>,
-                <ChangeEvent> ;
     rdfs:range rdfs:Literal .
 
 <districtVersion> a rdf:Property ;
