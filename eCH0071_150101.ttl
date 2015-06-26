@@ -12,7 +12,9 @@
 @prefix schema: <http://schema.org/>.
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
 @prefix eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> .
-@prefix bfs: <http://data.admin.cd/id/>.
+@prefix hgv: <http://data.admin.ch/def/hgv/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
 
 <#Canton>
   rml:logicalSource [
@@ -23,18 +25,18 @@
 
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/canton/{cantonAbbreviation}";
-    rr:class eCH-0071:Canton ;
+    rr:class hgv:Canton ;
   ];
 
     rr:predicateObjectMap [
-    rr:predicate eCH-0071:cantonAbbreviation;
+    rr:predicate hgv:cantonAbbreviation;
     rr:objectMap [
       rml:reference "/canton/cantonAbbreviation";
     ]
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate eCH-0071:cantonId;
+    rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/canton/cantonId";
       rr:datatype xsd:integer ;
@@ -42,14 +44,14 @@
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate eCH-0071:cantonLongName;
+    rr:predicate hgv:longName;
     rr:objectMap [
       rml:reference "/canton/cantonLongName";
     ]
  ] ;
 
    rr:predicateObjectMap [
-    rr:predicate eCH-0071:cantonDateOfChange;
+    rr:predicate hgv:date;
     rr:objectMap [
       rml:reference "/canton/cantonDateOfChange";
       rr:datatype xsd:date ;
@@ -67,11 +69,11 @@
 
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/district/{districtHistId}";
-    rr:class eCH-0071:District ;
+    rr:class hgv:DistrictEntityVersion ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtHistId;
+    rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/district/districtHistId";
       rr:datatype xsd:integer ;
@@ -95,14 +97,14 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtLongName;
+    rr:predicate hgv:longName;
     rr:objectMap [
       rml:reference "/district/districtLongName";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtShortName;
+    rr:predicate hgv:shortName;
     rr:objectMap [
       rml:reference "/district/districtShortName";
     ]
@@ -203,7 +205,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtHistId;
+    rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/municipality/districtHistId";
       rr:datatype xsd:integer ;
@@ -211,14 +213,14 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:cantonAbbreviation;
+    rr:predicate hgv:cantonAbbreviation;
     rr:objectMap [
       rml:reference "/municipality/cantonAbbreviation";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityId;
+    rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/municipality/municipalityId";
       rr:datatype xsd:integer ;
@@ -323,11 +325,11 @@
 
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/municipality/{municipalityId}";
-    rr:class eCH-0071:Municipality ;
+    rr:class hgv:Municipality ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityId;
+    rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/municipality/municipalityId";
       rr:datatype xsd:integer ;
@@ -344,12 +346,12 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/event/{municipalityAdmissionNumber}";
-    rr:class sem:Event ;
+    rr:template "http://data.admin.ch/id/event/hgv/{municipalityAdmissionNumber}";
+    rr:class hgv:ChangeEvent ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate sem:hasTime;
+    rr:predicate hgv:date;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionDate";
       rr:datatype xsd:date ;
@@ -357,7 +359,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:eventId;
+    rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionNumber";
       rr:datatype xsd:integer ;
