@@ -4,6 +4,8 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+
 
 # Maps Event to HistoryMunicipality
 
@@ -11,24 +13,24 @@ CONSTRUCT {
 
   ?eventabolissionuri sem:hasActor ?histmunabolissionuri .
   ?eventadmissionuri sem:hasActor ?histmunadmissionuri .
-  ?histmunabolissionuri eCH-0071:hasEvent ?eventabolissionuri .
-  ?histmunadmissionuri eCH-0071:hasEvent ?eventadmissionuri .
+  ?histmunabolissionuri hgv:abolitionEvent ?eventabolissionuri .
+  ?histmunadmissionuri hgv:admissionEvent ?eventadmissionuri .
 
 }
 WHERE {
   {
-    ?eventabolissionuri a sem:Event ;
-      eCH-0071:eventId ?eventid .
+    ?eventabolissionuri a hgv:ChangeEvent ;
+      hgv:id ?eventid .
     
-    ?histmunabolissionuri a eCH-0071:HistoryMunicipality ;
+    ?histmunabolissionuri a hgv:MunicipalityVersion ;
       eCH-0071:municipalityAbolitionNumber ?eventid ;
 
   }
     {
-    ?eventadmissionuri a sem:Event ;
-      eCH-0071:eventId ?eventid .
+    ?eventadmissionuri a hgv:ChangeEvent ;
+      hgv:id ?eventid .
     
-    ?histmunadmissionuri a eCH-0071:HistoryMunicipality ;
+    ?histmunadmissionuri a hgv:MunicipalityVersion ;
       eCH-0071:municipalityAdmissionNumber ?eventid .
   }
 

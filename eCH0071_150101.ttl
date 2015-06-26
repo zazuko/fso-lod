@@ -68,7 +68,7 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/district/{districtHistId}";
+    rr:template "http://data.admin.ch/id/districtentryversion/{districtHistId}";
     rr:class hgv:DistrictEntityVersion ;
   ];
 
@@ -184,28 +184,20 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/historymunicipality/{historyMunicipalityId}";
-    rr:class eCH-0071:HistoryMunicipality ;
+    rr:template "http://data.admin.ch/id/municipalityversion/{historyMunicipalityId}";
+    rr:class hgv:MunicipalityVersion ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:historyMunicipalityId;
-    rr:objectMap [
-      rml:reference "/municipality/historyMunicipalityId";
-      rr:datatype xsd:integer ;
-    ]
- ] ;
-
-  rr:predicateObjectMap [
-    rr:predicate eCH-0071:historyMunicipalityId;
-    rr:objectMap [
-      rml:reference "/municipality/historyMunicipalityId";
-      rr:datatype xsd:integer ;
-    ]
- ] ;
-
-  rr:predicateObjectMap [
     rr:predicate hgv:id;
+    rr:objectMap [
+      rml:reference "/municipality/historyMunicipalityId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate eCH-0071:districtHistId;
     rr:objectMap [
       rml:reference "/municipality/districtHistId";
       rr:datatype xsd:integer ;
@@ -213,14 +205,14 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:cantonAbbreviation;
+    rr:predicate eCH-0071:cantonAbbreviation;
     rr:objectMap [
       rml:reference "/municipality/cantonAbbreviation";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate eCH-0071:municipalityId;
     rr:objectMap [
       rml:reference "/municipality/municipalityId";
       rr:datatype xsd:integer ;
@@ -228,14 +220,14 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityLongName;
+    rr:predicate hgv:longName;
     rr:objectMap [
       rml:reference "/municipality/municipalityLongName";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityShortName;
+    rr:predicate hgv:shortName;
     rr:objectMap [
       rml:reference "/municipality/municipalityShortName";
     ]

@@ -96,8 +96,14 @@
     rdfs:range <DistrictEntityVersion> .
 
 <abolitionEvent> a rdf:Property ;
-    rdfs:label "Mutation event"@en ;
-    rdfs:label "Mutationsevent"@de ;
+    rdfs:label "Mutation event abolition"@en ;
+    rdfs:label "Mutationsevent Aufhebung"@de ;
+    rdfs:domain [ a owl:Class; owl:unionOf ( <MunicipalityVersion> <DistrictEntityVersion> ) ] ;
+    rdfs:range <ChangeEvent> .
+
+<admissionEvent> a rdf:Property ;
+    rdfs:label "Mutation event admission"@en ;
+    rdfs:label "Mutationsevent Aufnahme"@de ;
     rdfs:domain [ a owl:Class; owl:unionOf ( <MunicipalityVersion> <DistrictEntityVersion> ) ] ;
     rdfs:range <ChangeEvent> .
 

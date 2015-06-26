@@ -11,19 +11,18 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX locn:    <http://www.w3.org/ns/locn#>
 PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
-PREFIX bfs: <http://data.example.org/id/>
+PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+
 
 CONSTRUCT {
-  ?munuri eCH-0071:canton ?cantonuri
+  ?munuri hgv:canton ?cantonuri
 }
 WHERE {
   
-  ?cantonuri a eCH-0071:Canton;
-  eCH-0071:cantonAbbreviation ?cantonid .
+  ?cantonuri a hgv:Canton;
+  hgv:cantonAbbreviation ?cantonid .
 
-  ?munuri a eCH-0071:HistoryMunicipality;
+  ?munuri a hgv:MunicipalityVersion;
   eCH-0071:cantonAbbreviation ?cantonid . 
-
-
 
 }

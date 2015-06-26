@@ -3,17 +3,21 @@ PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
 PREFIX dcterms: <http://purl.org/dc/terms/> 
 PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX bf: <http://bibframe.org/vocab/>
+PREFIX hg: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>
+
 
 # Maps Municipality to HistoryMunicipality
 
 CONSTRUCT {
-  ?munuri eCH-0071:historyMunicipality ?histmunuri .
-  ?histmunuri eCH-0071:municipality ?munuri .
+  ?munuri hgv:municipalityVersion ?histmunuri .
+  ?histmunuri hgv:municipality ?munuri .
 }
 WHERE {
-  ?histmunuri a eCH-0071:HistoryMunicipality ;
+  ?histmunuri a hgv:MunicipalityVersion ;
     eCH-0071:municipalityId ?municipalityId .
 
-  ?munuri a eCH-0071:Municipality ;
-    eCH-0071:municipalityId ?municipalityId .
+  ?munuri a hgv:Municipality ;
+    hgv:id ?municipalityId .
 }
