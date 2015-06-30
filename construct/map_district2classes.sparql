@@ -18,14 +18,14 @@ CONSTRUCT {
 WHERE {
   # Bezirk
   ?district a hgv:DistrictEntity ;
-    eCH-0071:districtEntryMode 15 .
+    eCH-0071:districtEntryModeId 15 .
   
   # Kanton ohne Bezirksunterteilung
   ?districtlesscanton a hgv:DistrictEntity ;
-    eCH-0071:districtEntryMode 16 .
+    eCH-0071:districtEntryModeId 16 .
   
    # Bezirksfreies Gebiet
   ?districtfreearea a hgv:DistrictEntity ;
-    eCH-0071:districtEntryMode 17 .
+    eCH-0071:districtEntryModeId 17 .
 
 }
