@@ -69,7 +69,7 @@
 
   rr:subjectMap [
     rr:template "http://data.admin.ch/id/district/{districtId}";
-    rr:class hgv:District ;
+    rr:class hgv:DistrictEntity ;
   ];
 
   rr:predicateObjectMap [
@@ -79,6 +79,14 @@
       rr:datatype xsd:integer ;
     ]
  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate eCH-0071:districtEntryModeId;
+    rr:objectMap [
+      rml:reference "/district/districtEntryMode";
+      rr:datatype xsd:integer ;
+    ]
+  ] ;
 
   rr:predicateObjectMap [
     rr:predicate hgv:districtVersion;
@@ -141,14 +149,6 @@
     rr:predicate hgv:shortName;
     rr:objectMap [
       rml:reference "/district/districtShortName";
-    ]
- ] ;
-
-  rr:predicateObjectMap [
-    rr:predicate eCH-0071:districtEntryModeId;
-    rr:objectMap [
-      rml:reference "/district/districtEntryMode";
-      rr:datatype xsd:integer ;
     ]
  ] ;
 
@@ -374,8 +374,8 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/event/hgv/{municipalityAdmissionNumber}";
-    rr:class hgv:ChangeEvent ;
+    rr:template "http://data.admin.ch/id/event/hgv/municipality/{municipalityAdmissionNumber}";
+    rr:class hgv:MunicipalityChangeEvent ;
   ];
 
   rr:predicateObjectMap [
@@ -404,8 +404,8 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/event/hgv/{districtAdmissionNumber}";
-    rr:class hgv:ChangeEvent ;
+    rr:template "http://data.admin.ch/id/event/hgv/district/{districtAdmissionNumber}";
+    rr:class hgv:DistrictChangeEvent ;
   ];
 
   rr:predicateObjectMap [

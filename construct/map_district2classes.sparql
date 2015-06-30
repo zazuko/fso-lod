@@ -1,0 +1,31 @@
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX schema: <http://schema.org/>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX code: <http://data.admin.ch/id/code/ech-0071/>
+PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+
+
+# Map DistrictEntity to more specific classes
+
+CONSTRUCT {
+  ?district a hgv:District .
+  ?districtlesscanton a hgv:DistrictlessCanton .
+  ?districtfreearea a hgv:DistrictFreeArea .
+}
+WHERE {
+  # Bezirk
+  ?district a hgv:DistrictEntity ;
+    eCH-0071:districtEntryMode 15 .
+  
+  # Kanton ohne Bezirksunterteilung
+  ?districtlesscanton a hgv:DistrictEntity ;
+    eCH-0071:districtEntryMode 16 .
+  
+   # Bezirksfreies Gebiet
+  ?districtfreearea a hgv:DistrictEntity ;
+    eCH-0071:districtEntryMode 17 .
+
+}

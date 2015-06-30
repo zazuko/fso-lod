@@ -1,0 +1,37 @@
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX schema: <http://schema.org/>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+
+
+# Maps Event to DistrictEntityVersion
+
+CONSTRUCT {
+
+  #?eventabolissionuri sem:hasActor ?histdistabolissionuri .
+  #?eventadmissionuri sem:hasActor ?histdistadmissionuri .
+  ?histdistabolissionuri hgv:abolitionEvent ?eventabolissionuri .
+  ?histdistadmissionuri hgv:admissionEvent ?eventadmissionuri .
+
+}
+WHERE {
+  {
+    ?eventabolissionuri a hgv:DistrictChangeEvent ;
+      hgv:id ?eventid .
+    
+    ?histdistabolissionuri a hgv:DistrictEntityVersion ;
+      eCH-0071:districtAbolitionNumber ?eventid ;
+
+  }
+    {
+    ?eventadmissionuri a hgv:DistrictChangeEvent ;
+      hgv:id ?eventid .
+    
+    ?histdistadmissionuri a hgv:DistrictEntityVersion ;
+      eCH-0071:districtAdmissionNumber ?eventid .
+  }
+
+}
