@@ -17,15 +17,15 @@ CONSTRUCT {
 }
 WHERE {
   # Politische Gemeinde
-  ?gemeinde a hgv:MunicipalityVersion ;
+  ?gemeinde a hgv:Municipality ;
     eCH-0071:municipalityEntryModeId 11 .
   
   # Gemeindefreies Gebiet
-  ?gemeindefrei a hgv:MunicipalityVersion ;
+  ?gemeindefrei a hgv:Municipality ;
     eCH-0071:municipalityEntryModeId 12 .
   
    # Kantonaler Seeanteil
-  ?seeanteil a hgv:MunicipalityVersion ;
+  ?seeanteil a hgv:Municipality ;
     eCH-0071:municipalityEntryModeId 13 .
 
 }

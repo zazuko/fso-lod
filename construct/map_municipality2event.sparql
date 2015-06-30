@@ -11,15 +11,15 @@ PREFIX hgv: <http://data.admin.ch/def/hgv/>
 
 CONSTRUCT {
 
-  ?eventabolissionuri sem:hasActor ?histmunabolissionuri .
-  ?eventadmissionuri sem:hasActor ?histmunadmissionuri .
+  #?eventabolissionuri sem:hasActor ?histmunabolissionuri .
+  #?eventadmissionuri sem:hasActor ?histmunadmissionuri .
   ?histmunabolissionuri hgv:abolitionEvent ?eventabolissionuri .
   ?histmunadmissionuri hgv:admissionEvent ?eventadmissionuri .
 
 }
 WHERE {
   {
-    ?eventabolissionuri a hgv:ChangeEvent ;
+    ?eventabolissionuri a hgv:MunicipalityChangeEvent ;
       hgv:id ?eventid .
     
     ?histmunabolissionuri a hgv:MunicipalityVersion ;
@@ -27,7 +27,7 @@ WHERE {
 
   }
     {
-    ?eventadmissionuri a hgv:ChangeEvent ;
+    ?eventadmissionuri a hgv:MunicipalityChangeEvent ;
       hgv:id ?eventid .
     
     ?histmunadmissionuri a hgv:MunicipalityVersion ;

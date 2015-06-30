@@ -17,16 +17,11 @@ PREFIX hgv: <http://data.admin.ch/def/hgv/>
 # Does not include Abolition entries as these are optional
 
 CONSTRUCT {
-  ?disturi eCH-0071:districEntryMode ?districtEntryModeUri .
-  ?disturi eCH-0071:districtAdmissionMode ?districtAdmissionModeUri .
+  ?disturi hgv:admissionMode ?districtAdmissionModeUri .
 }
 WHERE {
   ?disturi a hgv:DistrictEntityVersion;
-  	eCH-0071:districtEntryModeId ?districtEntryMode ;
   	eCH-0071:districtAdmissionModeId ?districtAdmissionMode .
-  
-  ?districtEntryModeUri a skos:Concept ;
-  	skos:notation ?districtEntryMode .
   
   ?districtAdmissionModeUri a skos:Concept ;
   	skos:notation ?districtAdmissionMode .

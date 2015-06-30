@@ -68,6 +68,40 @@
   ]; 
 
   rr:subjectMap [
+    rr:template "http://data.admin.ch/id/district/{districtId}";
+    rr:class hgv:District ;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate hgv:id;
+    rr:objectMap [
+      rml:reference "/district/districtId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate hgv:districtVersion;
+    rr:objectMap [
+      rr:parentTriplesMap <#DistrictEntityVersion>;
+      rr:joinCondition [
+        rr:child "districtHistId";
+        rr:parent "/district/districtHistId";
+      ];
+    ];
+  ].
+
+
+# DistrictEntityVersion
+
+<#DistrictEntityVersion>
+  rml:logicalSource [
+    rml:source "eCH0071_150101.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "/eCH-0071:nomenclature/districts/district"
+  ]; 
+
+  rr:subjectMap [
     rr:template "http://data.admin.ch/id/districtentryversion/{districtHistId}";
     rr:class hgv:DistrictEntityVersion ;
   ];
@@ -234,14 +268,6 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate eCH-0071:municipalityEntryModeId;
-    rr:objectMap [
-      rml:reference "/municipality/municipalityEntryMode";
-      rr:datatype xsd:integer ;
-    ]
- ] ;
-
-  rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityStatusId;
     rr:objectMap [
       rml:reference "/municipality/municipalityStatus";
@@ -320,17 +346,27 @@
     rr:class hgv:Municipality ;
   ];
 
+  # This is a bit hackish: Technically this is assigned to the MunicipalityVersion but it should be
+  # always the same so we assign it here for easier mapping in the CONSTRUCT
+  rr:predicateObjectMap [
+    rr:predicate eCH-0071:municipalityEntryModeId;
+    rr:objectMap [
+      rml:reference "/municipality/municipalityEntryMode";
+      rr:datatype xsd:integer ;
+    ]
+  ] ;
+
   rr:predicateObjectMap [
     rr:predicate hgv:id;
     rr:objectMap [
       rml:reference "/municipality/municipalityId";
       rr:datatype xsd:integer ;
     ]
- ].
+  ].
 
- # Event
+ # MunicipalityEvent
 
- <#Event>
+ <#MunicipalityEvent>
   rml:logicalSource [
     rml:source "eCH0071_150101.xml";
     rml:referenceFormulation ql:XPath;
@@ -357,3 +393,34 @@
       rr:datatype xsd:integer ;
     ]
  ] .
+
+ # DistrictEvent
+
+ <#DistrictEvent>
+  rml:logicalSource [
+    rml:source "eCH0071_150101.xml";
+    rml:referenceFormulation ql:XPath;
+    rml:iterator "/eCH-0071:nomenclature/districts/district"
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://data.admin.ch/id/event/hgv/{districtAdmissionNumber}";
+    rr:class hgv:ChangeEvent ;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate hgv:date;
+    rr:objectMap [
+      rml:reference "/district/districtAdmissionDate";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate hgv:id;
+    rr:objectMap [
+      rml:reference "/district/districtAdmissionNumber";
+      rr:datatype xsd:integer ;
+    ]
+ ] .
+

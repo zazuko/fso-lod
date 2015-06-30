@@ -17,7 +17,7 @@ PREFIX hgv: <http://data.admin.ch/def/hgv/>
 # Only includes Abolition entries
 
 CONSTRUCT {
-     ?disturi eCH-0071:districtAbolitionMode ?districtAbolitionModeUri .
+     ?disturi hgv:abolitionMode ?districtAbolitionModeUri .
 
 }
 WHERE {

@@ -17,16 +17,11 @@ PREFIX hgv: <http://data.admin.ch/def/hgv/>
 # Does not include Abolition entries as these are optional
 
 CONSTRUCT {
-  ?munuri eCH-0071:municipalityEntryMode ?municipalityEntryModeUri .
-  ?munuri eCH-0071:municipalityAdmissionMode ?municipalityAdmissionModeUri .
+  ?munuri hgv:admissionMode ?municipalityAdmissionModeUri .
 }
 WHERE {
   ?munuri a hgv:MunicipalityVersion;
-    eCH-0071:municipalityEntryModeId ?municipalityEntryMode ;
     eCH-0071:municipalityAdmissionModeId ?municipalityAdmissionMode .
-  
-  ?municipalityEntryModeUri a skos:Concept ;
-    skos:notation ?municipalityEntryMode .
   
   ?municipalityAdmissionModeUri a skos:Concept ;
     skos:notation ?municipalityAdmissionMode .

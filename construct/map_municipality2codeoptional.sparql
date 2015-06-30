@@ -17,7 +17,7 @@ PREFIX hgv: <http://data.admin.ch/def/hgv/>
 # Only includes Abolition entries
 
 CONSTRUCT {
-  ?munuri eCH-0071:municipalityAbolitionMode ?municipalityAbolitionModeUri .
+  ?munuri hgv:abolitionMode ?municipalityAbolitionModeUri .
 }
 WHERE {
   ?munuri a hgv:MunicipalityVersion;

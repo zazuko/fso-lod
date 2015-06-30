@@ -64,6 +64,16 @@
     rdfs:label "Mutation"@en ;
     rdfs:label "Mutation"@de .
 
+<MunicipalityChangeEvent> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <ChangeEvent> ;
+    rdfs:label "Municipality mutation"@en ;
+    rdfs:label "Gemeindemutation"@de .
+
+<DistrictChangeEvent> a rdfs:Class, owl:Class;
+    rdfs:subClassOf <ChangeEvent> ;
+    rdfs:label "District mutation"@en ;
+    rdfs:label "Distriktmutation"@de .
+
 <canton> a rdf:Property ;
     rdfs:label "Canton affiliation"@en ;
     rdfs:label "Kantonszugehörigkeit"@de ;
@@ -145,42 +155,50 @@
 <InitialCompilation> a skos:Concept ;
     rdfs:label "Initial Compilation"@en ;
     rdfs:label "Ersterfassung"@de ;
+    skos:notation 20 ;
     rdfs:comment "Neugründung Gemeinde/Bezirk"@de.
 
 <NewFoundation> a skos:Concept ;
     rdfs:label "New Foundation"@en ;
     rdfs:label "Neugründung"@de ;
+    skos:notation 21 ;
     rdfs:comment "Neugründung Gemeinde/Bezirk"@de.
 
 <NameChange> a skos:Concept ;
     rdfs:label "Change of Name"@en ;
     rdfs:label "Namensänderung"@de ;
+    skos:notation 23 ;
     rdfs:comment "Namensänderung Gemeinde/Bezirk"@de.
 
 <NewDistrictOrCanton> a skos:Concept ;
     rdfs:label "New District Or canton"@en ;
     rdfs:label "Neuer BEZ/KT"@de ;
+    skos:notation 24 ;
     rdfs:comment "Neue Bezirks-/Kantonszuteilung "@de.
 
 #Frage: was für einen Abolitionsmode hat ein Bezirk bei einer Gebietsänderung des Bezirks
 <TerritorialChange> a skos:Concept ;
     rdfs:label "Territorial Change"@en ;
     rdfs:label "Gebietänderung"@de ;
+    skos:notation 26 ;
     rdfs:comment "Gebietsänderung Gemeinde"@de.
 
 <Renumbering> a skos:Concept ;
     rdfs:label "Renumbering of municipality/district"@en ;
     rdfs:label "Neunummerierung GDE/BEZ"@de ;
+    skos:notation 27 ;
     rdfs:comment "Formale Neunummerierung Gemeinde/Bezirk"@de.
 
 <Dissolution> a skos:Concept ;
     rdfs:label "Dissolution"@en ;
     rdfs:label "Aufhebung"@de ;
+    skos:notation 29 ;
     rdfs:comment "Aufhebung Gemeinde/Bezirk"@de.
 
 <AbrogationOfMutation> a skos:Concept ;
     rdfs:label "Abrogation of Mutation"@en ;
     rdfs:label "Mutation annulliert"@de ;
+    skos:notation 30 ;
     rdfs:comment "Mutation annulliert"@de.
 
 
