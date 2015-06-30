@@ -11,21 +11,21 @@ PREFIX hgv: <http://data.admin.ch/def/hgv/>
 # Map MunicipalityVersion to more specific classes
 
 CONSTRUCT {
-  ?gemeinde a hgv:PoliticalMunicipality .
-  #?gemeindefrei a hgv:MunicipalityFreeArea .
-  #?seeanteil a hgv:CantonalLakePortion .
+ # ?gemeinde a hgv:PoliticalMunicipality .
+  ?gemeindefrei a hgv:MunicipalityFreeArea .
+  ?seeanteil a hgv:CantonalLakePortion .
 }
 WHERE {
   # Politische Gemeinde
-  ?gemeinde a hgv:Municipality ;
-    eCH-0071:municipalityEntryModeId 11 .
+  #?gemeinde a hgv:Municipality ;
+   # eCH-0071:municipalityEntryModeId 11 .
   
   # Gemeindefreies Gebiet
-  #?gemeindefrei a hgv:Municipality ;
-   # eCH-0071:municipalityEntryModeId 12 .
+  ?gemeindefrei a hgv:Municipality ;
+    eCH-0071:municipalityEntryModeId 12 .
   
    # Kantonaler Seeanteil
- # ?seeanteil a hgv:Municipality ;
-  #  eCH-0071:municipalityEntryModeId 13 .
+  ?seeanteil a hgv:Municipality ;
+    eCH-0071:municipalityEntryModeId 13 .
 
 }

@@ -21,7 +21,7 @@ CONSTRUCT {
 WHERE {
 
   ?munuri a hgv:MunicipalityVersion;
-  hgv:id ?districtid . 
+  eCH-0071:districtHistId ?districtid . 
 
   ?districturi a hgv:DistrictEntityVersion;
   hgv:id ?districtid . 
