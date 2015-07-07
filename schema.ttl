@@ -137,7 +137,7 @@
 <districtVersion> a rdf:Property ;
     rdfs:label "Versioned district"@en ;
     rdfs:label "Historisierter Bezirk"@de ;
-    rdfs:domain <District> ;
+    rdfs:domain <DistrictEntity> ;
     rdfs:range <DistrictEntityVersion> .
 
 <municipalityVersion> a rdf:Property ;
