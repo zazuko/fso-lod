@@ -5,7 +5,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
 PREFIX code: <http://data.admin.ch/id/code/ech-0071/>
-PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX gont: <https://gont.ch/> 
 
 
 # (1) Eingemeindung: [A] + [B] -> [A+]
@@ -18,24 +18,24 @@ CONSTRUCT {
 }
 WHERE {
   # Politische Gemeinde
-  ?formermunuri a hgv:MunicipalityVersion ;
+  ?formermunuri a gont:MunicipalityVersion ;
     eCH-0071:municipalityAbolitionNumber  ?eventid ;
     eCH-0071:municipalityAbolitionModeId 26 ;
-    hgv:cantonAbbreviation ?canton ;
-  hgv:id ?formermunicipalityId .
+    gont:cantonAbbreviation ?canton ;
+  gont:id ?formermunicipalityId .
  
-  ?abandonnedmunuri a hgv:MunicipalityVersion ;
+  ?abandonnedmunuri a gont:MunicipalityVersion ;
     eCH-0071:municipalityAbolitionNumber  ?eventid ;
     eCH-0071:municipalityAbolitionModeId 29 ;
-  hgv:id ?abandonnedmunicipalityId .
-    #hgv:id 2242 .
+  gont:id ?abandonnedmunicipalityId .
+    #gont:id 2242 .
 
-  ?newmunuri a hgv:MunicipalityVersion ;
+  ?newmunuri a gont:MunicipalityVersion ;
     eCH-0071:municipalityAdmissionNumber ?eventid ;
     eCH-0071:municipalityAdmissionModeId 26 ;
-    hgv:id ?abandonnedmunicipalityId . ## TODO das muss admissionmunicipalityId werden
+    gont:id ?abandonnedmunicipalityId . ## TODO das muss admissionmunicipalityId werden
   
-  ?eventuri a hgv:ChangeEvent ;
-    hgv:id ?eventid .
+  ?eventuri a gont:ChangeEvent ;
+    gont:id ?eventid .
  
 }

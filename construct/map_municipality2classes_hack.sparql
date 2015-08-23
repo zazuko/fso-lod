@@ -5,27 +5,27 @@ PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
 PREFIX code: <http://data.admin.ch/id/code/ech-0071/>
-PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX gont: <https://gont.ch/> 
 
 
 # Map MunicipalityVersion to more specific classes
 
 CONSTRUCT {
- # ?gemeinde a hgv:PoliticalMunicipality .
-  ?gemeindefrei a hgv:MunicipalityFreeArea .
-  ?seeanteil a hgv:CantonalLakePortion .
+ # ?gemeinde a gont:PoliticalMunicipality .
+  ?gemeindefrei a gont:MunicipalityFreeArea .
+  ?seeanteil a gont:CantonalLakePortion .
 }
 WHERE {
   # Politische Gemeinde
-  #?gemeinde a hgv:Municipality ;
+  #?gemeinde a gont:Municipality ;
    # eCH-0071:municipalityEntryModeId 11 .
   
   # Gemeindefreies Gebiet
-  ?gemeindefrei a hgv:Municipality ;
+  ?gemeindefrei a gont:Municipality ;
     eCH-0071:municipalityEntryModeId 12 .
   
    # Kantonaler Seeanteil
-  ?seeanteil a hgv:Municipality ;
+  ?seeanteil a gont:Municipality ;
     eCH-0071:municipalityEntryModeId 13 .
 
 }

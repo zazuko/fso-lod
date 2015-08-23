@@ -5,27 +5,27 @@ PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
 PREFIX code: <http://data.admin.ch/id/code/ech-0071/>
-PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX gont: <https://gont.ch/> 
 
 
 # Map DistrictEntity to more specific classes
 
 CONSTRUCT {
-  ?district a hgv:District .
-  ?districtlesscanton a hgv:DistrictlessCanton .
-  ?districtfreearea a hgv:DistrictFreeArea .
+  ?district a gont:District .
+  ?districtlesscanton a gont:DistrictlessCanton .
+  ?districtfreearea a gont:DistrictFreeArea .
 }
 WHERE {
   # Bezirk
-  ?district a hgv:DistrictEntity ;
+  ?district a gont:DistrictEntity ;
     eCH-0071:districtEntryModeId 15 .
   
   # Kanton ohne Bezirksunterteilung
-  ?districtlesscanton a hgv:DistrictEntity ;
+  ?districtlesscanton a gont:DistrictEntity ;
     eCH-0071:districtEntryModeId 16 .
   
    # Bezirksfreies Gebiet
-  ?districtfreearea a hgv:DistrictEntity ;
+  ?districtfreearea a gont:DistrictEntity ;
     eCH-0071:districtEntryModeId 17 .
 
 }

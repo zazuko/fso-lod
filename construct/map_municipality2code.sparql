@@ -10,17 +10,17 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX locn:    <http://www.w3.org/ns/locn#>
 PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
-PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX gont: <https://gont.ch/> 
 
 
 # Maps the mandatory fields to respective URIs
 # Does not include Abolition entries as these are optional
 
 CONSTRUCT {
-  ?munuri hgv:admissionMode ?municipalityAdmissionModeUri .
+  ?munuri gont:admissionMode ?municipalityAdmissionModeUri .
 }
 WHERE {
-  ?munuri a hgv:MunicipalityVersion;
+  ?munuri a gont:MunicipalityVersion;
     eCH-0071:municipalityAdmissionModeId ?municipalityAdmissionMode .
   
   ?municipalityAdmissionModeUri a skos:Concept ;

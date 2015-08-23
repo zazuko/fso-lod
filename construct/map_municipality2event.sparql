@@ -4,7 +4,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
-PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX gont: <https://gont.ch/> 
 
 
 # Maps Event to HistoryMunicipality
@@ -13,24 +13,24 @@ CONSTRUCT {
 
   #?eventabolissionuri sem:hasActor ?histmunabolissionuri .
   #?eventadmissionuri sem:hasActor ?histmunadmissionuri .
-  ?histmunabolissionuri hgv:abolitionEvent ?eventabolissionuri .
-  ?histmunadmissionuri hgv:admissionEvent ?eventadmissionuri .
+  ?histmunabolissionuri gont:abolitionEvent ?eventabolissionuri .
+  ?histmunadmissionuri gont:admissionEvent ?eventadmissionuri .
 
 }
 WHERE {
   {
-    ?eventabolissionuri a hgv:MunicipalityChangeEvent ;
-      hgv:id ?eventid .
+    ?eventabolissionuri a gont:MunicipalityChangeEvent ;
+      gont:id ?eventid .
     
-    ?histmunabolissionuri a hgv:MunicipalityVersion ;
+    ?histmunabolissionuri a gont:MunicipalityVersion ;
       eCH-0071:municipalityAbolitionNumber ?eventid ;
 
   } UNION # This UNION is necessary otherwise we lack half of the events
     {
-    ?eventadmissionuri a hgv:MunicipalityChangeEvent ;
-      hgv:id ?eventid .
+    ?eventadmissionuri a gont:MunicipalityChangeEvent ;
+      gont:id ?eventid .
     
-    ?histmunadmissionuri a hgv:MunicipalityVersion ;
+    ?histmunadmissionuri a gont:MunicipalityVersion ;
       eCH-0071:municipalityAdmissionNumber ?eventid .
   }
 

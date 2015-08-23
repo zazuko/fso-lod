@@ -5,7 +5,7 @@ PREFIX dbr: <http://dbpedia.org/resource/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-PREFIX hgv: <http://data.admin.ch/def/hgv/> 
+PREFIX gont: <https://gont.ch/> 
 
 CONSTRUCT {
    ?munuri owl:sameAs ?dbpuri ;
@@ -18,8 +18,8 @@ WHERE
      dbp:municipalityCode ?municipalityId .
    }
 
-   ?munuri a hgv:Municipality;
-       hgv:id ?municipalityId .
+   ?munuri a gont:Municipality;
+       gont:id ?municipalityId .
 # This should no longer be necessary as we do it on the Municipality, not on HistoryMunicipality
 #   MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
 
