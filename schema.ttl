@@ -10,7 +10,8 @@
 
 <Municipality> a rdfs:Class, owl:Class;
     rdfs:label "Municipality"@en ;
-    rdfs:label "Gemeinde"@de .
+    rdfs:label "Gemeinde"@de ;
+    rdfs:subClassOf <TerritorialCommunity> .
 
 <PoliticalMunicipality> a rdfs:Class, owl:Class;
     rdfs:subClassOf <Municipality> ;
@@ -33,11 +34,13 @@
 
 <Canton> a rdfs:Class, owl:Class;
     rdfs:label "Canton"@en ;
-    rdfs:label "Kanton"@de .
+    rdfs:label "Kanton"@de ;
+    rdfs:subClassOf <TerritorialCommunity> .
 
 <DistrictEntity> a rdfs:Class, owl:Class;
     rdfs:label "District Entity"@en ;
     rdfs:label "Entität Bezirk"@de ;
+    rdfs:subClassOf <TerritorialCommunity> ;
     rdfs:comment "Entität Bezirk (Bezirk oder Entität die aus statistischen bzw. geographischen Gründen auf der Ebene Bezirk ausgewiesen wird)"@de .
 
 <District> a rdfs:Class, owl:Class;
@@ -58,6 +61,10 @@
 <DistrictEntityVersion> a rdfs:Class, owl:Class;
     rdfs:label "District Version"@en ;
     rdfs:label "Historisierter Bezirk"@de .
+
+<TerritorialCommunity> a rdfs:Class, owl:Class;
+    rdfs:label "Territorial Community"@en ;
+    rdfs:label "Gebietskörperschaft"@de .
 
 <ChangeEvent> a rdfs:Class, owl:Class;
     rdfs:subClassOf sem:Event ;
