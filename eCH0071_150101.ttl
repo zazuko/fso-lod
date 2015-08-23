@@ -12,7 +12,7 @@
 @prefix schema: <http://schema.org/>.
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
 @prefix eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> .
-@prefix hgv: <http://data.admin.ch/def/hgv/> .
+@prefix gont: <https://gont.ch/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -24,19 +24,19 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/canton/{cantonAbbreviation}";
-    rr:class hgv:Canton ;
+    rr:template "http://classifications.data.admin.ch/canton/{cantonAbbreviation}";
+    rr:class gont:Canton ;
   ];
 
     rr:predicateObjectMap [
-    rr:predicate hgv:cantonAbbreviation;
+    rr:predicate gont:cantonAbbreviation;
     rr:objectMap [
       rml:reference "/canton/cantonAbbreviation";
     ]
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/canton/cantonId";
       rr:datatype xsd:integer ;
@@ -44,14 +44,14 @@
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate hgv:longName;
+    rr:predicate gont:longName;
     rr:objectMap [
       rml:reference "/canton/cantonLongName";
     ]
  ] ;
 
    rr:predicateObjectMap [
-    rr:predicate hgv:date;
+    rr:predicate gont:date;
     rr:objectMap [
       rml:reference "/canton/cantonDateOfChange";
       rr:datatype xsd:date ;
@@ -68,12 +68,12 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/district/{districtId}";
-    rr:class hgv:DistrictEntity ;
+    rr:template "http://classifications.data.admin.ch/district/{districtId}";
+    rr:class gont:DistrictEntity ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/district/districtId";
       rr:datatype xsd:integer ;
@@ -89,7 +89,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:districtVersion;
+    rr:predicate gont:districtVersion;
     rr:objectMap [
       rr:parentTriplesMap <#DistrictEntityVersion>;
       rr:joinCondition [
@@ -110,12 +110,12 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/districtentryversion/{districtHistId}";
-    rr:class hgv:DistrictEntityVersion ;
+    rr:template "http://classifications.data.admin.ch/districtentryversion/{districtHistId}";
+    rr:class gont:DistrictEntityVersion ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/district/districtHistId";
       rr:datatype xsd:integer ;
@@ -139,14 +139,14 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:longName;
+    rr:predicate gont:longName;
     rr:objectMap [
       rml:reference "/district/districtLongName";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:shortName;
+    rr:predicate gont:shortName;
     rr:objectMap [
       rml:reference "/district/districtShortName";
     ]
@@ -218,12 +218,12 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/municipalityversion/{historyMunicipalityId}";
-    rr:class hgv:MunicipalityVersion ;
+    rr:template "http://classifications.data.admin.ch/municipalityversion/{historyMunicipalityId}";
+    rr:class gont:MunicipalityVersion ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/municipality/historyMunicipalityId";
       rr:datatype xsd:integer ;
@@ -254,14 +254,14 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:longName;
+    rr:predicate gont:longName;
     rr:objectMap [
       rml:reference "/municipality/municipalityLongName";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:shortName;
+    rr:predicate gont:shortName;
     rr:objectMap [
       rml:reference "/municipality/municipalityShortName";
     ]
@@ -342,8 +342,8 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/municipality/{municipalityId}";
-    rr:class hgv:Municipality ;
+    rr:template "http://classifications.data.admin.ch/municipality/{municipalityId}";
+    rr:class gont:Municipality ;
   ];
 
   # This is a bit hackish: Technically this is assigned to the MunicipalityVersion but it should be
@@ -357,7 +357,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/municipality/municipalityId";
       rr:datatype xsd:integer ;
@@ -374,12 +374,12 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/event/hgv/municipality/{municipalityAdmissionNumber}";
-    rr:class hgv:MunicipalityChangeEvent ;
+    rr:template "http://classifications.data.admin.ch/event/hgv/municipality/{municipalityAdmissionNumber}";
+    rr:class gont:MunicipalityChangeEvent ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate hgv:date;
+    rr:predicate gont:date;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionDate";
       rr:datatype xsd:date ;
@@ -387,7 +387,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/municipality/municipalityAdmissionNumber";
       rr:datatype xsd:integer ;
@@ -404,12 +404,12 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://data.admin.ch/id/event/hgv/district/{districtAdmissionNumber}";
-    rr:class hgv:DistrictChangeEvent ;
+    rr:template "http://classifications.data.admin.ch/event/hgv/district/{districtAdmissionNumber}";
+    rr:class gont:DistrictChangeEvent ;
   ];
 
   rr:predicateObjectMap [
-    rr:predicate hgv:date;
+    rr:predicate gont:date;
     rr:objectMap [
       rml:reference "/district/districtAdmissionDate";
       rr:datatype xsd:date ;
@@ -417,7 +417,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate hgv:id;
+    rr:predicate gont:id;
     rr:objectMap [
       rml:reference "/district/districtAdmissionNumber";
       rr:datatype xsd:integer ;
