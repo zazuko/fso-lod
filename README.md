@@ -1,4 +1,5 @@
-# municipality-directory
-A set of scripts to transform the Swiss historised municipality directory to RDF
+#  Swiss Federal Statistical Office (FSO) datasets as Linked Data
 
-# Currently undergoing disuptive maintenance work (aka tidying up, see Issue #1)
+All you need to create Linked Open Data from public datasets published by the [Swiss Federal Statistical Office (FSO)](http://www.bfs.admin.ch/).
+
+The data can be dereferenced at [data.admin.ch](http://data.admin.ch), we also provide a public [SPARQL endpoint](http://data.admin.ch/sparql/).
