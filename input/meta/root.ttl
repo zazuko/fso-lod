@@ -1,0 +1,23 @@
+@base <http://data.admin.ch/> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<> a schema:WebPage ;
+schema:articleBody '''
+<h1 id="data.admin.ch">data.admin.ch</h1>
+<p>Welcome to data.admin.ch, on this portal the <a href="http://www.bfs.admin.ch/">Swiss Federal Statistical Office (FSO)</a> provides several datasets as Linked Data.</p>
+<p>The data can be dereferenced at <a href="http://data.admin.ch">data.admin.ch</a>, we also provide a public SPARQL endpoint. The webinterface can be found at <a href="http://data.admin.ch/sparql/">data.admin.ch/sparql/</a>, direct queries can be executed against <a href="http://data.admin.ch/query/" class="uri">http://data.admin.ch/query/</a>.</p>
+<h2 id="datasets">Datasets</h2>
+<h3 id="historised-municipality-index">Historised Municipality Index</h3>
+<h2 id="raw-data-dumps">Raw data dumps</h2>
+<p>The datasets are published in our <a href="https://github.com/zazuko/fso-lod">Github</a> repository, you can find all the scripts and the raw RDF dumps there.</p>
+<h2 id="feedback">Feedback</h2>
+<p>If you find any issues in the datasets or if you have problems querying the data please report an issue at <a href="https://github.com/zazuko/fso-lod/issues">Github</a>.</p>
+'''.
+
+
