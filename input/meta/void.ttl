@@ -8,6 +8,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix wv: <http://vocab.org/waiver/terms/norms> .        
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 <eCH0071> a void:Dataset;
     foaf:homepage <http://data.admin.ch/>;
@@ -17,20 +18,32 @@
     dcterms:title "Historisiertes Gemeindeverzeichnis"@de;
     dcterms:title "Liste historisée des communes"@fr;
     dcterms:title "Elenco storicizzato dei Comuni"@it;
-    dcterms:description "RDF data extracted from Wikipedia";
+    dcterms:description "RDF transformation of the Historicised ";
     dcterms:contributor <Zazuko>;
     dcterms:contributor <FSO>;
-    dcterms:source <http://www.bfs.admin.ch/bfs/portal/de/index/infothek/nomenklaturen/blank/blank/gem_liste/02.Document.103481.zip>; # this is supposed to be RDF
+    dcterms:source <eCH0071-Dist>;
     dcterms:issued "2015-01-01"^^xsd:date; # date of publication of the source
     dcterms:created "2015-11-01"^^xsd:date;
     dcterms:modified "2015-11-01"^^xsd:date;
     .
+
 <Zazuko> a foaf:Organization;
-    rdfs:label "Zazuko GmbH"@;
+    rdfs:label "Zazuko GmbH";
     foaf:homepage <http://www.zazuko.com/>;
     .
 
 <FSO> a foaf:Organization;
     rdfs:label "Swiss Federal Statistical Office"@en;
     foaf:homepage <http://www.bfs.admin.ch/>;
+    owl:sameAs <http://dbpedia.org/resource/Federal_Statistical_Office_%28Switzerland%29>
     .
+
+<eCH0071-Dist> a dcat:Dataset ;
+    dcterms:title "Historisiertes Gemeindeverzeichnis"@de;
+    dcterms:title "Liste historisée des communes"@fr;
+    dcterms:title "Elenco storicizzato dei Comuni"@it;
+    dcat:keyword "Gemeinde","Kanton" ,"Bezirk" ;
+    dcterms:issued "2015-01-01"^^xsd:date; # date of publication of the source
+    dcterms:publisher <FSO> ;
+    dcterms:distribution <eCH0071-Dist-xml> ;
+   .
