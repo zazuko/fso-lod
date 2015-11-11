@@ -1,5 +1,4 @@
 #!/bin/sh
-export FUSEKI_HOST=192.168.64.2
 if [ -z $FUSEKI_HOST ]
 then
   export FUSEKI_HOST="localhost"
