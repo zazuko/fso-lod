@@ -1,4 +1,7 @@
 #!/bin/sh
-export PATH=$PATH:/Users/ktk/Applications/Apache/jena-fuseki-1.1.1
-s-update --service http://localhost:3030/bfs/update 'CLEAR default'
-s-put --verbose http://localhost:3030/bfs/data default histgemeinde2015.nt 
+#docker run -p 3030:3030 -e ADMIN_PASSWORD=cinderella -d stain/jena-fuseki
+#sleep 20
+curl -u admin:cinderella --data "dbType=tdb&dbName=bfs"  http://$FUSEKI_HOST:3030/$/datasets
+#s-update --service http://localhost:3030/bfs/update 'CLEAR default'
+curl -X PUT  -u admin:cinderella -d @target/complete.nt -H "Content-Type: application/n-triples" http://admin:cinderella@$FUSEKI_HOST:3030/bfs/data
+
