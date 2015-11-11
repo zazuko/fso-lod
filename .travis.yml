@@ -1,0 +1,20 @@
+language: bash
+sudo: required
+services:
+  - docker
+before_install:
+  - docker pull stain/jena-fuseki
+  - docker run  -d -p 3030:3030 -e ADMIN_PASSWORD=cinderella stain/jena-fuseki
+  - sudo apt-get update -qq
+  - sudo apt-get install -y serdi
+script:
+    - bash scripts/eCH0071/build.sh
+deploy:
+  edge: true
+  provider: releases
+  api-key:
+    - secure: "" 
+  file: target/eCH0071-final.nt
+  on:
+    tags: true
+    all_branches: true
