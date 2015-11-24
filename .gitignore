@@ -1,2 +1,4 @@
 target
 input/meta/index.html
+node_modules
+.idea

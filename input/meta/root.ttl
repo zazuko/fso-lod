@@ -6,18 +6,40 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix site: <http://schema.zazuko.com/site/> .
 
 <> a schema:WebPage ;
+site:hasIntro _:intro ;
+schema:hasPart _:lindas ;
+schema:hasPart _:historised-municipality ;
+schema:hasPart _:github .
+
+_:intro a schema:Article ;
 schema:articleBody '''
 <h1 id="data.admin.ch">data.admin.ch</h1>
 <p>Welcome to data.admin.ch, on this portal the <a href="http://www.bfs.admin.ch/">Swiss Federal Statistical Office (FSO)</a> provides several datasets as Linked Data.</p>
 <p>The data can be dereferenced at <a href="http://data.admin.ch">data.admin.ch</a>, we also provide a public SPARQL endpoint. The webinterface can be found at <a href="http://data.admin.ch/sparql/">data.admin.ch/sparql/</a>, direct queries can be executed against <a href="http://data.admin.ch/query/" class="uri">http://data.admin.ch/query/</a>.</p>
-<h2 id="datasets">Datasets</h2>
-<h3 id="historised-municipality-index">Historised Municipality Index</h3>
-<h2 id="raw-data-dumps">Raw data dumps</h2>
-<p>The datasets are published in our <a href="https://github.com/zazuko/fso-lod">Github</a> repository, you can find all the scripts and the raw RDF dumps there.</p>
-<h2 id="feedback">Feedback</h2>
-<p>If you find any issues in the datasets or if you have problems querying the data please report an issue at <a href="https://github.com/zazuko/fso-lod/issues">Github</a>.</p>
-'''.
+''' .
 
+_:historised-municipality a schema:Article ;
+schema:dateCreated "2015-11-17"^^xsd:date ;
+schema:articleBody '''
+<h2 id="historised-municipality-index">Historised Municipality Index</h2>
+  <div>The Historised Municipality Index is currently the largest available dataset listing all Swiss municipalities and their development over time.</div>
+''' .
+
+_:lindas a schema:Article ;
+schema:dateCreated "2015-11-16"^^xsd:date ;
+schema:articleBody '''
+<h2>LINDAS</h2>
+  <div>LINDAS is the new platform where Linked Data is made available by the Swiss Federal Government as well as cantons and communes. This data.admin.ch portal uses the powerfull LINDAS' powerfull SPARQL store as backend.</div>
+''' .
+
+_:github a schema:Article ;
+schema:dateCreated "2015-11-15"^^xsd:date ;
+schema:articleBody '''
+<h2 id="raw-data-dumps">Open Source/Open Data</h2>
+  <p>This site is powered by Open Source Software, see our Github repository <a href="https://github.com/zazuko/data.admin.ch">data.admin.ch</a>.</p>
+<p>The datasets are published in our Github repository <a href="https://github.com/zazuko/fso-lod">fso-lod</a>, you can find all the scripts and the raw RDF dumps there.</p>
+'''.
 
