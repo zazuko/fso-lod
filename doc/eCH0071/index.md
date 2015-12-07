@@ -1,6 +1,6 @@
-# eCH0071 Important Classes & Attributes
+# eCH0071: Important Classes & Attributes
 
-Based on the XML eCH0071 vocabulary we defined some basic classes in RDF.
+Based on the XML eCH0071 vocabulary we defined some basic classes in RDF. Sample SPARQL queries can be found [here](sparql.md).
 
 ## Municipality
 
@@ -8,7 +8,7 @@ There are different representations of a municipality in our ontology. The origi
 
 ### gont:Municipality
 
-The non-versioned instance of a Swiss municipality. This version contains the 3-4 digit number which is often used to reference a municipality. Note that this number is by definition ambiguous. It is only unique if the dimension time is added and should thus not be used if possible.
+The non-versioned instance of a Swiss municipality. This version contains the 3-4 digit number which is often used to reference a municipality. Note that this number is by definition ambiguous. It is only unique if the dimension time is added and should thus not be used if possible (but yes, everyone does).
 
 Note that there is no name assigned with this URI for the simple reason that the name is only unique in the versioned municipality. If you need the name you need to follow the attribute `gont:municipalityVersion` to find the correct representation of the municipality in time.
 
@@ -39,11 +39,11 @@ The versioned instance of a Swiss municipality. Among others you will find the n
 
 ### gont:PoliticalMunicipality
 
-[gont:PoliticalMunicipality](https://gont.ch/PoliticalMunicipality) is a class which simplifies querying for "real" municipalities. This excludes special cases that eCH0071 modeles as a community, like lakes. Only used in conjunction with `gont:Municipality`.
+[gont:PoliticalMunicipality](https://gont.ch/PoliticalMunicipality) is a class which simplifies querying for "real" municipalities. This excludes special cases that eCH0071 models as a community, like lakes. Only used in conjunction with `gont:Municipality`.
 
 ### gont:MunicipalityChangeEvent
 
-A event represents a change in the life of a non-versioned municipality by adding an additional `gont:municipalityVersion` attribute. However, the event itself is attached to the versioned instance of the municipality. It provides a two attributes which are required to figure out what exactly happened at this point in time.
+A municipality change event represents a change in the life of a non-versioned municipality by adding an additional `gont:municipalityVersion` attribute. However, the event itself is attached to the versioned instance of the municipality. It provides a two attributes which are required to figure out what exactly happened at this point in time.
 
 * Definition: [gont:MunicipalityChangeEvent](https://gont.ch/MunicipalityChangeEvent)
 * URI concept: `hhttp://classifications.data.admin.ch/event/hgv/municipality/<ID>` where `<ID>` is the 4 digit integer (admission/abolition number in eCH0071).
@@ -56,24 +56,59 @@ See the SPARQL query examples about how this event is used.
 
 ## District
 
-### gont:District 
+Documentation work in progress.
+
 ### gont:DistrictEntity
+
+Generic district entity which is base class for several other classes.
+
+### gont:District
+
+The district itself. 
+
 ### gont:DistrictEntityVersion
-### gont:DistrictlessCanton
+
+Versioned district.
+
 ### gont:DistrictChangeEvent
+
+Represents a change in districts.
 
 ## Canton
 
+Documentation work in progress.
+
 ### gont:Canton
-### gont:CantonalLakePortion
+
+A Canton.
+
+### gont:DistrictlessCanton
+
+Special case of a canton which does not have districts. 
 
 ## Special Classes
 
+Documentation work in progress.
+
+### gont:CantonalLakePortion
+
+[gont:CantonalLakePortion](https://gont.ch/CantonalLakePortion) is a class which simplifies querying. In the original model lakes are represented as a special type of municipality.
+
 ### gont:DistrictFreeArea
+
+[gont:DistrictFreeArea](https://gont.ch/DistrictFreeArea) is a class which simplifies querying. In the original model distric free areas are represented as a special type of district.
+
 ### gont:MunicipalityFreeArea
 
+[gont:MunicipalityFreeArea](https://gont.ch/MunicipalityFreeArea) is a class which simplifies querying. In the original model municipality free areas are represented as a special type of municipality.
+
 ### gont:ChangeEvent
+
+Superclass for events.
+
 ### gont:TerritorialCommunity
+
+Superclass for several things.
 
 
 
