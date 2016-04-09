@@ -13,6 +13,7 @@
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
 @prefix eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> .
 @prefix gont: <https://gont.ch/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -37,6 +38,14 @@
 
     rr:predicateObjectMap [
     rr:predicate gont:id;
+    rr:objectMap [
+      rml:reference "/canton/cantonId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
     rr:objectMap [
       rml:reference "/canton/cantonId";
       rr:datatype xsd:integer ;
@@ -81,6 +90,14 @@
  ] ;
 
   rr:predicateObjectMap [
+    rr:predicate dct:identifier;
+    rr:objectMap [
+      rml:reference "/district/districtId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
     rr:predicate eCH-0071:districtEntryModeId;
     rr:objectMap [
       rml:reference "/district/districtEntryMode";
@@ -116,6 +133,14 @@
 
   rr:predicateObjectMap [
     rr:predicate gont:id;
+    rr:objectMap [
+      rml:reference "/district/districtHistId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
     rr:objectMap [
       rml:reference "/district/districtHistId";
       rr:datatype xsd:integer ;
@@ -224,6 +249,14 @@
 
   rr:predicateObjectMap [
     rr:predicate gont:id;
+    rr:objectMap [
+      rml:reference "/municipality/historyMunicipalityId";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
     rr:objectMap [
       rml:reference "/municipality/historyMunicipalityId";
       rr:datatype xsd:integer ;
@@ -362,6 +395,14 @@
       rml:reference "/municipality/municipalityId";
       rr:datatype xsd:integer ;
     ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
+    rr:objectMap [
+      rml:reference "/municipality/municipalityId";
+      rr:datatype xsd:integer ;
+    ]
   ].
 
  # MunicipalityEvent
@@ -392,6 +433,14 @@
       rml:reference "/municipality/municipalityAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
+    rr:objectMap [
+      rml:reference "/municipality/municipalityAdmissionNumber";
+      rr:datatype xsd:integer ;
+    ]
  ] .
 
  # DistrictEvent
@@ -418,6 +467,14 @@
 
   rr:predicateObjectMap [
     rr:predicate gont:id;
+    rr:objectMap [
+      rml:reference "/district/districtAdmissionNumber";
+      rr:datatype xsd:integer ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
     rr:objectMap [
       rml:reference "/district/districtAdmissionNumber";
       rr:datatype xsd:integer ;
