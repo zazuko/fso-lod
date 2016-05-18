@@ -1,0 +1,15 @@
+# Does not work, gets all inhabitants right now
+SELECT ("Einwohner Total" AS ?totaltxt) (SUM(?number) AS ?total)
+WHERE {
+    ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number;
+    <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype;
+    <http://data.admin.ch/bfs/property/SEX> ?sex;
+    <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri.
+
+    ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "{{MUNID}}".
+
+    ?ptype <http://www.w3.org/2004/02/skos/core#notation> ?pnumber.
+    FILTER ((xsd:int(?pnumber)) <= 2)
+    }
+#   GROUP by ?muniid
+LIMIT 100

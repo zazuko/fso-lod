@@ -1,0 +1,25 @@
+SELECT ("Alter im Durchschnitt" AS ?totaltxt) (((FLOOR(?avgnew / ?numberall2 * 100)) / 100) AS ?allavg) 
+WHERE
+    {
+    SELECT (SUM(?numberall * ?ageamount) AS ?avgnew) (SUM(?numberall) AS ?numberall2) ?remuniuri
+        WHERE
+        {
+        SELECT (SUM(?number) AS ?numberall) ?remuniuri (xsd:int(?agelit) AS ?ageamount)
+        WHERE {
+            ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number;
+            <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype;
+            <http://data.admin.ch/bfs/property/AGE> ?age;
+            <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri.
+
+            ?age <http://www.w3.org/2004/02/skos/core#notation> ?agelit.
+
+            ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "{{MUNID}}".
+
+            ?ptype <http://www.w3.org/2004/02/skos/core#notation> ?pnumber.
+            FILTER ((xsd:int(?pnumber)) <= 2)
+            }
+        GROUP by ?agelit ?remuniuri
+        }
+    GROUP BY ?remuniuri
+    }
+    LIMIT 100

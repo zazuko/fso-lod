@@ -1,0 +1,28 @@
+SELECT CONCAT(STR(?ageinterval)," - ",STR(?ageinterval+4)) (SUM(IF(?sex=<http://data.admin.ch/bfs/code/1.0/CL_SEX/2>,?number,0)) AS ?Female_Inhabitants) (SUM(IF(?sex=<http://data.admin.ch/bfs/code/1.0/CL_SEX/1>,?number,0)) AS ?Male_Inhabitants)
+      WHERE {
+          ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> ?remuniid.
+          BIND((xsd:integer(?remuniid)) AS ?remuniidint)
+
+          ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number;
+          <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype;
+          <http://data.admin.ch/bfs/property/AGE> ?age;
+          <http://data.admin.ch/bfs/property/SEX> ?sex;
+          <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri.
+
+          ?muni <http://data.admin.ch/vocab/municipalityId> ?remuniidint;
+          <http://data.admin.ch/vocab/municipalityAdmissionDate> ?admissionDate.
+          OPTIONAL { ?muni <http://data.admin.ch/vocab/municipalityAbolitionDate> ?abolitionDate. }
+
+          ?age <http://www.w3.org/2004/02/skos/core#notation> ?agenumber.
+
+          ?ptype <http://www.w3.org/2004/02/skos/core#notation> ?pnumber.
+          FILTER ((xsd:int(?pnumber)) <= 2)
+
+          FILTER ((xsd:date(?admissionDate)) <= "2011-01-01"^^xsd:date)
+          FILTER (!bound(?abolitionDate) || (xsd:date(?abolitionDate) >= "2011-01-01"^^xsd:date))
+
+          }
+          GROUP BY ((floor((xsd:int(?agenumber))/5)*5) AS ?ageinterval)
+          ORDER BY DESC(xsd:int(?ageinterval))
+
+  LIMIT 10000

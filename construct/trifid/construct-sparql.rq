@@ -1,0 +1,17 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX gont: <https://gont.ch/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?municipality rdfs:seeAlso ?query .
+}
+WHERE
+{
+  ?s <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri .
+  ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> ?munidstr .
+  BIND(xsd:integer(?munidstr) AS ?munid) .
+
+  ?municipality a gont:Municipality ;
+  gont:id ?munid .
+  BIND (URI(CONCAT("http://ducks.example.com/aDuck/",?munid)) AS ?query)
+}
