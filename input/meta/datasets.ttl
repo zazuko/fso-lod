@@ -1,0 +1,41 @@
+@base <http://data.admin.ch/> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix site: <http://schema.zazuko.com/site/> .
+
+<> a schema:WebPage ;
+site:hasMenu _:menu ;
+site:hasIntro _:intro ;
+schema:hasPart _:github .
+
+_:menu a site:Menu ;
+schema:articleBody '''
+  <li><a href="http://data.admin.ch/datasets" title="Available Data">Data</a></li>
+  <li><a href="http://data.admin.ch/apps" title="Applications">Applications</a></li>
+  <li><a href="http://data.admin.ch/sparql" title="SPARQL Endpoint">SPARQL</a></li>
+  <li><a title="About the Portal" href="http://data.admin.ch/about">About the Portal</a></li>
+  <li><a title="Contact Us" href="http://data.admin.ch/contact">Contact</a></li>
+''' .
+
+_:intro a site:Intro ;
+site:title '''Datasets''' ;
+schema:articleBody '''
+<header>
+<h1>LINDAS</h1>
+<p>LINDAS is the new platform where Linked Data is made available by the Swiss Federal Government as well as cantons and communes. This data.admin.ch portal uses the powerfull LINDAS' powerfull SPARQL store as backend.</p>
+</header>
+<header>
+<h1>Historised Municipality Index</h1>
+<p>The Historised Municipality Index is currently the largest available dataset listing all Swiss municipalities and their development over time.</p>
+</header>
+''' .
+
+_:github a site:Footer ;
+schema:dateCreated "2015-11-15"^^xsd:date ;
+schema:articleBody '''<p>Do you have questions about the Linked Data pilot portal? Contact us via our
+<a title="github" href="https://github.com/zazuko/fso-lod">Github page</a>.</p>'''.
