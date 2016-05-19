@@ -18,11 +18,11 @@ schema:hasPart _:github .
 
 _:menu a site:Menu ;
 schema:articleBody '''
-  <li><a href="http://data.admin.ch/datasets" title="Data">Data</a></li>
+  <li><a href="http://data.admin.ch/datasets" title="Available Data">Data</a></li>
   <li><a href="http://data.admin.ch/apps" title="Applications">Applications</a></li>
-  <li><a href="http://data.admin.ch/sparql" title="SPARQL">SPARQL</a></li>
-  <li><a title="About" href="http://data.admin.ch/about">About the Portal</a></li>
-  <li><a title="Contact" href="http://data.admin.ch/contact">Contact</a></li>
+  <li><a href="http://data.admin.ch/sparql" title="SPARQL Endpoint">SPARQL</a></li>
+  <li><a title="About the Portal" href="http://data.admin.ch/about">About the Portal</a></li>
+  <li><a title="Contact Us" href="http://data.admin.ch/contact">Contact</a></li>
 ''' .
 
 _:intro a site:Intro ;
@@ -32,7 +32,7 @@ schema:articleBody '''
 ''' ;
 site:sideTitle '''Open Data''' ;
 site:sideBody '''
-<p>Looking for the Swiss Open Data portal?<br/>You can find it at <a href="http://opendata.admin.ch?">opendata.admin.ch</a></p>
+<p>Looking for the portal for Swiss open government data (OGD)?<br/>You can find it at <a href="https://opendata.swiss/">opendata.swiss</a></p>
 ''' .
 
 _:accessing a site:Box ;

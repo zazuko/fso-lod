@@ -23,10 +23,8 @@ schema:articleBody '''
 ''' .
 
 _:intro a site:Intro ;
-site:title '''Datasets''' ;
+site:title '''data.admin.ch – Der Linked Data Pilot''' ;
 schema:articleBody '''
-<header>
-<h1>data.admin.ch – Der Linked Data Pilot</h1>
 <p>data.admin.ch ist das Pilotportal für offene Linked Data (Linked Open Data LOD) der öffentlichen Verwaltung (Linked Government Data LGD) in der Schweiz. Es enthält Daten und Metadaten in Form von Tripeln (RDF). Und es zeigt verschiedene Anwendungen, die dieses Datenformat und dessen Potenzial an maschinenlesbarer Verlinkung im data space nutzen. Daten und Anwendungen benützen dazu die LINDAS-Plattform.</p>
 <p>Eine Auswahl von Beispielen weiterer Linked Data Portale:</p>
 <ul>
@@ -36,7 +34,6 @@ schema:articleBody '''
     <li><a href="http://labs.europeana.eu/api/linked-open-data-introduction">Europeana Linked Open Data</a></li>
     <li><a href="http://collection.britishmuseum.org">British Museum Semantic Web Collection Online</a></li>
 </ul>
-</header>
 ''' .
 
 _:github a site:Footer ;
