@@ -9,37 +9,70 @@
 @prefix site: <http://schema.zazuko.com/site/> .
 
 <> a schema:WebPage ;
+site:hasMenu _:menu ;
 site:hasIntro _:intro ;
-schema:hasPart _:lindas ;
-schema:hasPart _:historised-municipality ;
+site:hasBoxLeft _:accessing;
+site:hasBoxRight _:linkeddata;
+site:hasContainer _:applications ;
 schema:hasPart _:github .
 
-_:intro a schema:Article ;
+_:menu a site:Menu ;
 schema:articleBody '''
-<h1 id="data.admin.ch">data.admin.ch</h1>
+  <li><a href="http://data.admin.ch/datasets" title="Data">Data</a></li>
+  <li><a href="http://data.admin.ch/apps" title="Applications">Applications</a></li>
+  <li><a href="http://data.admin.ch/sparql" title="SPARQL">SPARQL</a></li>
+  <li><a title="About" href="http://data.admin.ch/about">About the Portal</a></li>
+  <li><a title="Contact" href="http://data.admin.ch/contact">Contact</a></li>
+''' .
+
+_:intro a site:Intro ;
+site:title '''Linked Data Pilot''' ;
+schema:articleBody '''
 <p>Welcome to data.admin.ch, on this portal the <a href="http://www.bfs.admin.ch/">Swiss Federal Statistical Office (FSO)</a> provides several datasets as Linked Data.</p>
-<p>The data can be dereferenced at <a href="http://data.admin.ch">data.admin.ch</a>, we also provide a public SPARQL endpoint. The webinterface can be found at <a href="http://data.admin.ch/sparql/">data.admin.ch/sparql/</a>, direct queries can be executed against <a href="http://data.admin.ch/query/" class="uri">http://data.admin.ch/query/</a>.</p>
+''' ;
+site:sideTitle '''Open Data''' ;
+site:sideBody '''
+<p>Looking for the Swiss Open Data portal?<br/>You can find it at <a href="http://opendata.admin.ch?">opendata.admin.ch</a></p>
 ''' .
 
-_:historised-municipality a schema:Article ;
+_:accessing a site:Box ;
+site:title '''Accessing Data''' ;
+schema:articleBody '''
+<p>The data can be dereferenced at <a href="http://data.admin.ch">data.admin.ch</a>, we also provide a public
+SPARQL endpoint.</p>
+
+<p>The webinterface can be found at <a href="http://data.admin.ch/sparql/">data.admin.ch/sparql/</a>, direct
+queries can be executed against <a href="http://data.admin.ch/query/" class="uri">http://data.admin.ch/query/</a>.</p>
+''' .
+
+_:linkeddata a site:Box ;
+site:title '''What is Linked Data?''' ;
+schema:articleBody '''
+<p>Linked Data?</p>
+
+<p>Semantic Web?</p>
+
+<p>Some sources to get acquainted with Linked Data</p>
+''' .
+
+_:applications a site:Container ;
+site:hasApplicationLeft _:historised-municipality ;
+site:hasApplicationRight _:lindas ;
+site:title '''Applications''' .
+
+_:historised-municipality a site:Application ;
 schema:dateCreated "2015-11-17"^^xsd:date ;
-schema:articleBody '''
-<h2 id="historised-municipality-index">Historised Municipality Index</h2>
-  <div>The Historised Municipality Index is currently the largest available dataset listing all Swiss municipalities and their development over time.</div>
+site:title '''Historised Municipality Index''' ;
+schema:articleBody '''<p>The Historised Municipality Index is currently the largest available dataset listing all Swiss municipalities and their development over time.</p>
 ''' .
 
-_:lindas a schema:Article ;
+_:lindas a site:Application ;
 schema:dateCreated "2015-11-16"^^xsd:date ;
-schema:articleBody '''
-<h2>LINDAS</h2>
-  <div>LINDAS is the new platform where Linked Data is made available by the Swiss Federal Government as well as cantons and communes. This data.admin.ch portal uses the powerfull LINDAS' powerfull SPARQL store as backend.</div>
+site:title '''LINDAS''' ;
+schema:articleBody '''<p>LINDAS is the new platform where Linked Data is made available by the Swiss Federal Government as well as cantons and communes. This data.admin.ch portal uses the powerfull LINDAS' powerfull SPARQL store as backend.</p>
 ''' .
 
-_:github a schema:Article ;
+_:github a site:Footer ;
 schema:dateCreated "2015-11-15"^^xsd:date ;
-schema:articleBody '''
-<h2 id="raw-data-dumps">Open Source/Open Data</h2>
-  <p>This site is powered by Open Source Software, see our Github repository <a href="https://github.com/zazuko/data.admin.ch">data.admin.ch</a>.</p>
-<p>The datasets are published in our Github repository <a href="https://github.com/zazuko/fso-lod">fso-lod</a>, you can find all the scripts and the raw RDF dumps there.</p>
-'''.
-
+schema:articleBody '''<p>Do you have questions about the Linked Data pilot portal? Contact us via our
+<a title="github" href="https://github.com/zazuko/fso-lod">Github page</a>.</p>'''.
