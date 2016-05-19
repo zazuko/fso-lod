@@ -1,0 +1,45 @@
+@base <http://data.admin.ch/> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix site: <http://schema.zazuko.com/site/> .
+
+<> a schema:WebPage ;
+site:hasMenu _:menu ;
+site:hasIntro _:intro ;
+schema:hasPart _:github .
+
+_:menu a site:Menu ;
+schema:articleBody '''
+  <li><a href="http://data.admin.ch/datasets" title="Available Data">Data</a></li>
+  <li><a href="http://data.admin.ch/apps" title="Applications">Applications</a></li>
+  <li><a href="http://data.admin.ch/sparql" title="SPARQL Endpoint">SPARQL</a></li>
+  <li><a title="About the Portal" href="http://data.admin.ch/about">About the Portal</a></li>
+  <li><a title="Contact Us" href="http://data.admin.ch/contact">Contact</a></li>
+''' .
+
+_:intro a site:Intro ;
+site:title '''Datasets''' ;
+schema:articleBody '''
+<header>
+<h1>data.admin.ch – Der Linked Data Pilot</h1>
+<p>data.admin.ch ist das Pilotportal für offene Linked Data (Linked Open Data LOD) der öffentlichen Verwaltung (Linked Government Data LGD) in der Schweiz. Es enthält Daten und Metadaten in Form von Tripeln (RDF). Und es zeigt verschiedene Anwendungen, die dieses Datenformat und dessen Potenzial an maschinenlesbarer Verlinkung im data space nutzen. Daten und Anwendungen benützen dazu die LINDAS-Plattform.</p>
+<p>Eine Auswahl von Beispielen weiterer Linked Data Portale:</p>
+<ul>
+    <li><a href="http://open-data.europa.eu/de/linked-data">Offenes Datenportal der Europäischen Union</a></li>
+    <li><a href="http://statisticsbeta.com">Scottish Statistics Beta: Access to Scotland’s Official Statistics</a></li>
+    <li><a href="http://www.ldf.fi">Linked Data Finland</a></li>
+    <li><a href="http://labs.europeana.eu/api/linked-open-data-introduction">Europeana Linked Open Data</a></li>
+    <li><a href="http://collection.britishmuseum.org">British Museum Semantic Web Collection Online</a></li>
+</ul>
+</header>
+''' .
+
+_:github a site:Footer ;
+schema:dateCreated "2015-11-15"^^xsd:date ;
+schema:articleBody '''<p>Do you have questions about the Linked Data pilot portal? Contact us via our
+<a title="github" href="https://github.com/zazuko/fso-lod">Github page</a>.</p>'''.
