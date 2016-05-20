@@ -52,7 +52,7 @@ schema:articleBody '''
 
 <p>Semantic Web?</p>
 
-<p>Some sources to get acquainted with Linked Data</p>
+  <p>Some sources to <a href="/linkeddata/">get acquainted with Linked Data</a></p>
 ''' .
 
 _:applications a site:Container ;
