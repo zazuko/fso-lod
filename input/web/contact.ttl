@@ -1,4 +1,4 @@
-@base <http://data.admin.ch/contact> .
+@base <http://data.admin.ch/contact/> .
 @prefix schema: <http://schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -25,7 +25,8 @@ schema:articleBody '''
 _:intro a site:Intro ;
 site:title '''Contact''' ;
 schema:articleBody '''
-  <p>data.admin.ch is using infrastructure from the <a href="http://egovernment.ch/lindas">Linked Data Service LINDAS</a>. 
+  <p>You can contact us via our <a title="github" href="https://github.com/zazuko/fso-lod">Github page, this is also the preferred way to report issues. If you would like to talk to us you can send an email to <a href="mailto:info@zazuko.com">info@zazuko.com</a>.
+  data.admin.ch is using infrastructure provided by the SECO <a href="http://egovernment.ch/lindas">Linked Data Service LINDAS</a>. 
 </p>
 ''' .
 

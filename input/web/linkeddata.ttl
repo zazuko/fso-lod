@@ -1,0 +1,54 @@
+@base <http://data.admin.ch/linkeddata/> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix site: <http://schema.zazuko.com/site/> .
+
+<> a schema:WebPage ;
+site:hasMenu _:menu ;
+site:hasIntro _:intro ;
+schema:hasPart _:github .
+
+_:menu a site:Menu ;
+schema:articleBody '''
+  <li><a href="http://data.admin.ch/datasets" title="Available Data">Data</a></li>
+  <li><a href="http://data.admin.ch/apps" title="Applications">Applications</a></li>
+  <li><a href="http://data.admin.ch/sparql" title="SPARQL Endpoint">SPARQL</a></li>
+  <li><a title="About the Portal" href="http://data.admin.ch/about">About the Portal</a></li>
+  <li><a title="Contact Us" href="http://data.admin.ch/contact">Contact</a></li>
+''' .
+
+_:intro a site:Intro ;
+site:title '''Linked Data''' ;
+schema:articleBody '''
+<p>Linked Data? Semantic Web?</p>
+<p>Some sources to get acquainted with Linked Data</p>
+<h2>Short definitions</h2>
+<blockquote>
+    <p>Just as hyperlinks in the classic Web connect documents into a single global information space, Linked Data enables links to be set between items in different data sources and therefore connect these sources into a single global data space. The use of Web standards and a common data model make it possible to implement generic applications that operate over the complete data space. This is the essence of Linked Data.</p>
+</blockquote>
+<p>Tom Heath and Christian Bizer (2011) <a href="http://linkeddatabook.com/editions/1.0/#htoc0">Linked Data: Evolving the Web into a Global Data Space</a>.</p>
+<blockquote>
+    <p>Linked data provides real-world things (like a bus stop or an organisation) with an address on the web (URI), and data is published about the real-world things in machine-readable formats using the URI. Other datasets can then point to those things using their URI, which means that people using the data can find out more about something without that information being copied into the original dataset (like the bus times for that stop or the spend of the organisation).</p>
+</blockquote>
+<p>data.gov.uk - <a href="https://data.gov.uk/linked-data/what-is-linked-data">What is Linked Data</a></p>
+<h2>Videos</h2>
+<ul>
+    <li><a href="https://vimeo.com/36752317">Linked Open Data - What is it? by Europeana</a></li>
+    <li><a href="https://youtu.be/OM6XIICm_qo">Ted Talks 2009: Tim Berners-Lee, "The next Web of open, linked data"</a></li>
+    <li><a href="https://youtu.be/ga1aSJXCFe0">Gov 2.0 Expo 2010: Tim Berners-Lee, "Open, Linked Data for a Global Community"</a></li>
+</ul>
+<h2 id="a-starter-guide">A starter guide</h2>
+<ul>
+    <li><a href="http://www.reeep.org/LOD-the-Essentials.pdf">Linked Open Data: The Essentials</a></li>
+</ul>
+''' .
+
+_:github a site:Footer ;
+schema:dateCreated "2015-11-15"^^xsd:date ;
+schema:articleBody '''<p>Do you have questions about the Linked Data pilot portal? Contact us via our
+<a title="github" href="https://github.com/zazuko/fso-lod">Github page</a>.</p>'''.

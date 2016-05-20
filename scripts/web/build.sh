@@ -1,6 +1,6 @@
 #!/bin/sh
-rapper -i turtle -o ntriples input/web/about.ttl  > target/website.nt
-rapper -i turtle -o ntriples input/web/apps.ttl >> target/website.nt
-rapper -i turtle -o ntriples input/web/contact.ttl >> target/website.nt
-rapper -i turtle -o ntriples input/web/datasets.ttl >> target/website.nt
-rapper -i turtle -o ntriples input/web/root.ttl >> target/website.nt
+serdi -i turtle -o ntriples -p a input/web/about.ttl  > target/website.nt
+serdi -i turtle -o ntriples -p b input/web/apps.ttl >> target/website.nt
+serdi -i turtle -o ntriples -p c input/web/contact.ttl >> target/website.nt
+serdi -i turtle -o ntriples -p d input/web/datasets.ttl >> target/website.nt
+serdi -i turtle -o ntriples -p e input/web/root.ttl >> target/website.nt
