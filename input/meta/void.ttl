@@ -13,13 +13,13 @@
 <> a void:DatasetDescription;
     dcterms:title "VoID Description of data.admin.ch Datasets"@en;
     dcterms:creator <org/Zazuko>;
-    foaf:primaryTopic <dataset/meta>, <dataset/eCH0071> , <dataset/STATPOP-2011> .
+    foaf:primaryTopic <dataset/meta>, <dataset/eCH0071>, <dataset/STATPOP-2011> .
 
 <dataset/meta> a void:Dataset, dcat:Dataset ;
     foaf:homepage <http://data.admin.ch/>;
     dcterms:title "Metadaten zu LINDAS & data.admin.ch"@de;
     dcterms:title "LINDAS & data.admin.ch meta data"@en;
-    dcterms:description "This graph contains all meta data about datasets provided by LINDAS and related projects like data.admin.ch.";
+    dcterms:description "This graph contains all meta data about datasets provided by LINDAS and related projects like data.admin.ch."@en;
     dcterms:creator <org/Zazuko>;
     dcterms:issued "2016-05-23"^^xsd:date; # date of publication of the source
     dcterms:created "2016-05-23"^^xsd:date;
@@ -36,7 +36,7 @@
     dcterms:title "Liste historisée des communes"@fr;
     dcterms:title "Elenco storicizzato dei Comuni"@it;
     dcterms:title "Historicized Municipality Register"@en;
-    dcterms:description "RDF transformation of the Historicized Municipality Register";
+    dcterms:description "RDF transformation of the Historicized Municipality Register"@en;
     dcterms:contributor <org/Zazuko>;
     dcterms:creator <org/FSO>;
     dcterms:source <eCH0071-Dist>;
