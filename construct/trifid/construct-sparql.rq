@@ -2,9 +2,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX gont: <https://gont.ch/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-CONSTRUCT {
-  ?municipality rdfs:seeAlso ?query .
-}
+INSERT { GRAPH <http://data.admin.ch/graph/statpoplinks> {
+  ?municipality gont:populationStatistics ?query .
+}}
 WHERE
 {
   ?s <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri .
@@ -13,5 +13,5 @@ WHERE
 
   ?municipality a gont:Municipality ;
   gont:id ?munid .
-  BIND (URI(CONCAT("http://ducks.example.com/aDuck/",?munid)) AS ?query)
+  BIND (URI(REPLACE("http://lindas-data.ch/sparql?default-graph-uri=&query=PREFIX+gont%3A+%3chttps%3A%2F%2Fgont.ch%2F%3e%0D%0A%0D%0ACONSTRUCT+%7B%0D%0A++%3chttp%3A%2F%2Fclassifications.data.admin.ch%2Fmunicipality%2F#MUNID#%3e+gont%3ApopulationSegment+[%0D%0A++++gont%3AfromAge+%3FfromAge+%3B%0D%0A++++gont%3AtoAge+%3FtoAge+%3B%0D%0A++++gont%3AmalePopulation+%3FMale_Inhabitants+%3B%0D%0A++++gont%3AfemalePopulation+%3FFemale_Inhabitants+%0D%0A++]%0D%0A%7D%0D%0A%0D%0AWHERE%0D%0A%7B%0D%0A++%7B%0D%0A++++SELECT+%0D%0A++++++(%3Fageinterval+AS+%3FfromAge)%0D%0A++++++(%3Fageinterval%2B4+AS+%3FtoAge)%0D%0A++++++(SUM(IF(%3Fsex%3D%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fcode%2F1.0%2FCL_SEX%2F2%3e%2C%3Fnumber%2C0))+AS+%3FFemale_Inhabitants)%0D%0A++++++(SUM(IF(%3Fsex%3D%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fcode%2F1.0%2FCL_SEX%2F1%3e%2C%3Fnumber%2C0))+AS+%3FMale_Inhabitants)%0D%0A++++WHERE%0D%0A++++%7B%0D%0A++++++++%3Fs+%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fproperty%2FNB_PERSON%3e+%3Fnumber%3B%0D%0A++++++++%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fproperty%2FPOPULATIONTYPE%3e+%3Fptype%3B%0D%0A++++++++%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fproperty%2FSEX%3e+%3Fsex%3B%0D%0A++++++++%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fproperty%2FREPORTINGMUNICIPALITYID%3e+%3Fremuniuri%3B%0D%0A++++++++%3chttp%3A%2F%2Fdata.admin.ch%2Fbfs%2Fproperty%2FAGE%3e+%3Fage.%0D%0A%0D%0A++++++++%3Fremuniuri+%3chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23notation%3e+%22#MUNID#%22.%0D%0A++++++++%3Fage+%3chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23notation%3e+%3Fagenumber.%0D%0A%0D%0A++++++++%3Fptype+%3chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23notation%3e+%3Fpnumber.%0D%0A++++++++FILTER+((xsd%3Aint(%3Fpnumber))+%3c%3D+2)%0D%0A%0D%0A++++++%7D%0D%0A++++++GROUP+BY+((FLOOR((xsd%3Aint(%3Fagenumber))%2F5)*5)+AS+%3Fageinterval)%0D%0A++++++ORDER+BY+DESC(xsd%3Aint(%3Fageinterval))%0D%0A++%7D%0D%0A%7D", "#MUNID#", ?munid)) AS ?query)
 }
