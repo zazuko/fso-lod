@@ -1,0 +1,15 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ("Einwohner Total" AS ?totaltxt) (SUM(?number) AS ?total)
+FROM <http://lindas-data.ch/resource/statpop>
+WHERE {
+        ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "351". 
+
+        ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number;
+           <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype;
+           <http://data.admin.ch/bfs/property/SEX> ?sex;
+           <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri. 
+        
+        FILTER (?ptype IN (<http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/1>, <http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/2>))                
+}

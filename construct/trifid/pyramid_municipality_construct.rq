@@ -6,11 +6,14 @@ CONSTRUCT {
     gont:toAge ?toAge ;
     gont:malePopulation ?Male_Inhabitants ;
     gont:femalePopulation ?Female_Inhabitants 
-  ]
+  ];
+  gont:inhabitants ?total 
+  #gont:averageAge ?allavg .
 }
 
 WHERE
 {
+  # age pyramid
   {
     SELECT 
       (?ageinterval AS ?fromAge)
@@ -35,4 +38,20 @@ WHERE
       GROUP BY ((FLOOR((xsd:int(?agenumber))/5)*5) AS ?ageinterval)
       ORDER BY DESC(xsd:int(?ageinterval))
   }
+  # amount of inhabitants
+  {
+    SELECT ("Einwohner Total" AS ?totaltxt) (SUM(?number) AS ?total)
+    FROM <http://lindas-data.ch/resource/statpop>
+    WHERE {
+            ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "351". 
+
+            ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number;
+               <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype;
+               <http://data.admin.ch/bfs/property/SEX> ?sex;
+               <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri. 
+            
+            FILTER (?ptype IN (<http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/1>, <http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/2>))                
+    }
+  }
+
 }
