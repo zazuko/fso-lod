@@ -7,7 +7,7 @@ CONSTRUCT {
     gont:malePopulation ?Male_Inhabitants ;
     gont:femalePopulation ?Female_Inhabitants 
   ];
-  gont:inhabitants ?total 
+  gont:population ?total 
   #gont:averageAge ?allavg .
 }
 
@@ -28,7 +28,7 @@ WHERE
         <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri;
         <http://data.admin.ch/bfs/property/AGE> ?age.
 
-        ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "1".
+        ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "#MUNID#".
         ?age <http://www.w3.org/2004/02/skos/core#notation> ?agenumber.
 
         ?ptype <http://www.w3.org/2004/02/skos/core#notation> ?pnumber.
@@ -43,7 +43,7 @@ WHERE
     SELECT ("Einwohner Total" AS ?totaltxt) (SUM(?number) AS ?total)
     FROM <http://lindas-data.ch/resource/statpop>
     WHERE {
-            ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "351". 
+            ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "#MUNID#". 
 
             ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number;
                <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype;

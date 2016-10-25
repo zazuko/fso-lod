@@ -2,23 +2,23 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ("Alter im Durchschnitt" AS ?totaltxt)(((FLOOR(?avgnew / ?numberall2 * 100)) / 100) AS ?allavg)
+SELECT ("Alter im Durchschnitt" AS ?2totaltxt)(((FLOOR(?2avgnew / ?2numberall2 * 100)) / 100) AS ?2allavg)
 FROM <http://lindas-data.ch/resource/statpop>
 WHERE {
-  SELECT (SUM(?numberall * ?ageamount) AS ?avgnew) (SUM(?numberall) AS ?numberall2) ?remuniuri
+  SELECT (SUM(?2numberall * ?2ageamount) AS ?2avgnew) (SUM(?2numberall) AS ?2numberall2) ?2remuniuri
   FROM <http://lindas-data.ch/resource/statpop>
   WHERE {
-    SELECT (SUM(?number) AS ?numberall) ?remuniuri (xsd:int(?agelit) AS ?ageamount)
+    SELECT (SUM(?2number) AS ?2numberall) ?2remuniuri (xsd:int(?2agelit) AS ?2ageamount)
     FROM <http://lindas-data.ch/resource/statpop>
     WHERE {
-            ?remuniuri <http://www.w3.org/2004/02/skos/core#notation> "351" . 
-            ?s <http://data.admin.ch/bfs/property/NB_PERSON> ?number ;
-               <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?ptype ;
-               <http://data.admin.ch/bfs/property/AGE> ?age ;
-               <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?remuniuri . 
-            ?age <http://www.w3.org/2004/02/skos/core#notation> ?agelit .
+            ?2remuniuri <http://www.w3.org/2004/02/skos/core#notation> "351" . 
+            ?2s <http://data.admin.ch/bfs/property/NB_PERSON> ?2number ;
+               <http://data.admin.ch/bfs/property/POPULATIONTYPE> ?2ptype ;
+               <http://data.admin.ch/bfs/property/AGE> ?2age ;
+               <http://data.admin.ch/bfs/property/REPORTINGMUNICIPALITYID> ?2remuniuri . 
+            ?2age <http://www.w3.org/2004/02/skos/core#notation> ?2agelit .
 
-            FILTER (?ptype IN (<http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/1>, <http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/2>))                
+            FILTER (?2ptype IN (<http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/1>, <http://data.admin.ch/bfs/code/1.0/CL_POPULATIONTYPE/2>))                
           }
     }    
 }
