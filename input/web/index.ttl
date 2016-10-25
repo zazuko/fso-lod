@@ -7,8 +7,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix site: <http://schema.zazuko.com/site/> .
+@prefix dct: <http://purl.org/dc/terms/>.
 
 <> a schema:WebPage ;
+dct:title "Linked Open Government Data Pilot" ;
 site:hasMenu _:menu ;
 site:hasIntro _:intro ;
 site:hasBoxLeft _:accessing;
