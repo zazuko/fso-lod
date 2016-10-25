@@ -10,7 +10,8 @@
 
 <> a schema:WebPage ;
 site:hasMenu _:menu ;
-site:hasIntro _:intro ;
+site:hasBoxLeft _:choropleth ;
+site:hasBoxRight _:muniBrowser ;
 schema:hasPart _:github .
 
 _:menu a site:Menu ;
@@ -22,10 +23,18 @@ schema:articleBody '''
   <li><a title="Contact Us" href="http://data.admin.ch/contact">Contact</a></li>
 ''' .
 
-_:intro a site:Intro ;
+_:choropleth a site:Box ;
 site:title '''Choropleth''' ;
 schema:articleBody '''
 <p><a href="http://data.admin.ch/map/">Sample application</a> based on STATTAB-SDMX-01-2A01+2011 data. This visualization was made within the prototype phase in colaboration with <a href="http://www.ti.bfh.ch/">Berner Fachhochschule</a>. There are currently no other STATPOP datasets available as RDF.</p>
+''' .
+
+_:muniBrowser a site:Box ;
+site:title '''Municipality Browser''' ;
+schema:articleBody '''
+<p><a href="http://classifications.data.admin.ch/municipality-browser/">Mashup Demo</a> 
+this application allows to find municiaplities based on their current or any previous name
+and renders information based on DBpedia as well as STATTAB-SDMX-01-2A01+2011 data.</p>
 ''' .
 
 _:github a site:Footer ;
