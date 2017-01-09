@@ -19,7 +19,7 @@
 
 <#Canton>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_160701.xml";
+    rml:source "input/eCH0071/eCH0071_170101.xml";
     rml:referenceFormulation ql:XPath;
     rml:iterator "/eCH-0071:nomenclature/cantons/canton"
   ]; 
