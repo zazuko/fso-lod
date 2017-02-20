@@ -15,9 +15,10 @@ WHERE
    SERVICE <https://web-sparql-virtuoso.dev.bgdi.ch/sparql>
    {
       ?sturi a <http://schema.org/AdministrativeArea> ;
-        <https://ld.geo.admin.ch/def/bfsNumber> ?municipalityId .
+        <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?munuri .
+      #  <https://ld.geo.admin.ch/def/bfsNumber> ?municipalityId .
    }
 
-   ?munuri a gont:Municipality ;
-      gont:id ?municipalityId .
+   ?munuri a gont:Municipality .
+    #  gont:id ?municipalityId .
 }
