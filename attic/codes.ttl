@@ -33,7 +33,7 @@ skos:notation 16 .
 
 <17> a skos:Concept ;
 skos:prefLabel "Bezirksfreies Gebiet"@de ;
-skos:altLabel "Bezifksfrei"@de ;
+skos:altLabel "Bezirksfrei"@de ;
 skos:notation 17 .
 
 <20> a skos:Concept ;
