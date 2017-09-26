@@ -4,6 +4,7 @@ source scripts/env.sh
 FUSEKI_UPDATE=http://$FUSEKI_HOST:3030/fso/update
 function sparqlu { curl -H "Accept: text/turtle" --data-urlencode update@$1 $2 ; }
 
+sparqlu construct/eCH0071/map_canton2canton.rq $FUSEKI_UPDATE
 sparqlu construct/eCH0071/map_district2canton.rq $FUSEKI_UPDATE
 sparqlu construct/eCH0071/map_district2code.rq $FUSEKI_UPDATE
 sparqlu construct/eCH0071/map_district2codeoptional.rq $FUSEKI_UPDATE
