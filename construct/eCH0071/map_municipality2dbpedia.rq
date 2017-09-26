@@ -1,14 +1,13 @@
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbr: <http://dbpedia.org/resource/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX dbp: <http://dbpedia.org/property/>
-PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gont: <https://gont.ch/> 
 
 INSERT { GRAPH <http://example.org/inference> {
-   ?munuri owl:sameAs ?dbpuri ;
+   ?munuri rdfs:seeAlso ?dbpuri ;
 }}
 WHERE
 { GRAPH <http://example.org/fso> {

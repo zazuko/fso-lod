@@ -9,7 +9,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gont: <https://gont.ch/> 
 
 INSERT { GRAPH <http://example.org/inference> {
-   ?munuri owl:sameAs ?sturi .
+   ?munuri rdfs:seeAlso ?sturi .
 }}
 WHERE
 { GRAPH <http://example.org/fso> {
