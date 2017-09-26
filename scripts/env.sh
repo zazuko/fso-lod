@@ -1,0 +1,1 @@
+FUSEKI_HOST=localhost
