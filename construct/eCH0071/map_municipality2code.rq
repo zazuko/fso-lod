@@ -13,17 +13,17 @@ PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/>
 PREFIX gont: <https://gont.ch/> 
 
 
-# Maps the optional fields to respective URIs
-# Only includes Abolition entries
+# Maps the mandatory fields to respective URIs
+# Does not include Abolition entries as these are optional
 
-CONSTRUCT {
-     ?disturi gont:abolitionMode ?districtAbolitionModeUri .
-
-}
+INSERT { GRAPH <http://example.org/inference> {
+  ?munuri gont:admissionMode ?municipalityAdmissionModeUri .
+}}
 WHERE {
-  ?disturi a gont:DistrictEntityVersion;
-    eCH-0071:districtAbolitionModeId ?districtAbolitionMode .
+  ?munuri a gont:MunicipalityVersion;
+    eCH-0071:municipalityAdmissionModeId ?municipalityAdmissionMode .
   
-  ?districtAbolitionModeUri a skos:Concept ;
-    skos:notation ?districtAbolitionMode .
+  ?municipalityAdmissionModeUri a skos:Concept ;
+    skos:notation ?municipalityAdmissionMode .
+  
 }

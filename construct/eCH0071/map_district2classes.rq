@@ -10,11 +10,11 @@ PREFIX gont: <https://gont.ch/>
 
 # Map DistrictEntity to more specific classes
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
   ?district a gont:District .
   ?districtlesscanton a gont:DistrictlessCanton .
   ?districtfreearea a gont:DistrictFreeArea .
-}
+}}
 WHERE {
   # Bezirk
   ?district a gont:DistrictEntity ;

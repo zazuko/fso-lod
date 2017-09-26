@@ -1,3 +1,4 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -7,15 +8,15 @@ PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gont: <https://gont.ch/> 
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
    ?munuri owl:sameAs ?sturi .
-}
+}}
 WHERE
 {
-   SERVICE <https://web-sparql-virtuoso.dev.bgdi.ch/sparql>
+   SERVICE <https://sparql.geo.admin.ch/sparql>
    {
       ?sturi a <http://schema.org/AdministrativeArea> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?munuri .
+        rdfs:seeAlso ?munuri .
       #  <https://ld.geo.admin.ch/def/bfsNumber> ?municipalityId .
    }
 

@@ -13,9 +13,9 @@ PREFIX gont: <https://gont.ch/>
 ## TODO das stimmt noch nicht, ist so nur Thurgau
 
 #SELECT COUNT(*)
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
  ?eventuri a eCH-0071:EingemeindungEvent ;
-}
+}}
 WHERE {
   # Politische Gemeinde
   ?formermunuri a gont:MunicipalityVersion ;

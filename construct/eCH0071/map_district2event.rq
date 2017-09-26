@@ -9,14 +9,14 @@ PREFIX gont: <https://gont.ch/>
 
 # Maps Event to DistrictEntityVersion
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
 
   #?eventabolissionuri sem:hasActor ?histdistabolissionuri .
   #?eventadmissionuri sem:hasActor ?histdistadmissionuri .
   ?histdistabolissionuri gont:abolitionEvent ?eventabolissionuri .
   ?histdistadmissionuri gont:admissionEvent ?eventadmissionuri .
 
-}
+}}
 WHERE {
   {
     ?eventabolissionuri a gont:DistrictChangeEvent ;

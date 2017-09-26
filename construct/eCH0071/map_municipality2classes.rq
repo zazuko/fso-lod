@@ -10,15 +10,15 @@ PREFIX gont: <https://gont.ch/>
 
 # Map MunicipalityVersion to more specific classes
 
-CONSTRUCT {
- # ?gemeinde a gont:PoliticalMunicipality .
+INSERT { GRAPH <http://example.org/inference> {
+  ?gemeinde a gont:PoliticalMunicipality .
   ?gemeindefrei a gont:MunicipalityFreeArea .
   ?seeanteil a gont:CantonalLakePortion .
-}
+}}
 WHERE {
   # Politische Gemeinde
-  #?gemeinde a gont:Municipality ;
-   # eCH-0071:municipalityEntryModeId 11 .
+  ?gemeinde a gont:Municipality ;
+    eCH-0071:municipalityEntryModeId 11 .
   
   # Gemeindefreies Gebiet
   ?gemeindefrei a gont:Municipality ;

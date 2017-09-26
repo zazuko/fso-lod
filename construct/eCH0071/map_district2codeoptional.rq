@@ -1,4 +1,3 @@
-# map municipalities to districts
 PREFIX rr:     <http://www.w3.org/ns/r2rml#>
 PREFIX rml:    <http://semweb.mmlab.be/ns/rml#> 
 PREFIX ql:     <http://semweb.mmlab.be/ns/ql#> 
@@ -13,17 +12,18 @@ PREFIX schema: <http://schema.org/>
 PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
 PREFIX gont: <https://gont.ch/> 
 
-# Map MunicipalityVersion to DistrictEntityVersion
 
-CONSTRUCT {
-  ?munuri gont:district ?districturi
-}
+# Maps the optional fields to respective URIs
+# Only includes Abolition entries
+
+INSERT { GRAPH <http://example.org/inference> {
+     ?disturi gont:abolitionMode ?districtAbolitionModeUri .
+
+}}
 WHERE {
-
-  ?munuri a gont:MunicipalityVersion;
-  eCH-0071:districtHistId ?districtid . 
-
-  ?districturi a gont:DistrictEntityVersion;
-  gont:id ?districtid . 
-
+  ?disturi a gont:DistrictEntityVersion;
+    eCH-0071:districtAbolitionModeId ?districtAbolitionMode .
+  
+  ?districtAbolitionModeUri a skos:Concept ;
+    skos:notation ?districtAbolitionMode .
 }

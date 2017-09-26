@@ -10,10 +10,10 @@ PREFIX hg: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>
 
 # Maps Municipality to HistoryMunicipality
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
   ?munuri gont:municipalityVersion ?histmunuri .
   ?histmunuri gont:municipality ?munuri .
-}
+}}
 WHERE {
   ?histmunuri a gont:MunicipalityVersion ;
     eCH-0071:municipalityId ?municipalityId .

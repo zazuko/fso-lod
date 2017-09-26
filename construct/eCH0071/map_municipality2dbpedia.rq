@@ -7,9 +7,9 @@ PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gont: <https://gont.ch/> 
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
    ?munuri owl:sameAs ?dbpuri ;
-}
+}}
 WHERE
 {
    SERVICE <http://dbpedia.org/sparql>

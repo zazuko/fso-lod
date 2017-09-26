@@ -14,9 +14,9 @@ PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/>
 PREFIX gont: <https://gont.ch/> 
 
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
   ?munuri gont:canton ?cantonuri
-}
+}}
 WHERE {
   
   ?cantonuri a gont:Canton;

@@ -8,10 +8,10 @@ PREFIX gont: <https://gont.ch/>
 
 # Maps the status of the Municipality entry to a URI
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
   ?munuri eCH-0071:municipalityPredecessor ?oldmunuri .
   ?oldmunuri eCH-0071:municipalitySuccessor ?munuri .
-}
+}}
 WHERE {
   {
     ?munuri a gont:MunicipalityVersion;

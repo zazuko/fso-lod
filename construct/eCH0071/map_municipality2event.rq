@@ -9,14 +9,14 @@ PREFIX gont: <https://gont.ch/>
 
 # Maps Event to HistoryMunicipality
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
 
   #?eventabolissionuri sem:hasActor ?histmunabolissionuri .
   #?eventadmissionuri sem:hasActor ?histmunadmissionuri .
   ?histmunabolissionuri gont:abolitionEvent ?eventabolissionuri .
   ?histmunadmissionuri gont:admissionEvent ?eventadmissionuri .
 
-}
+}}
 WHERE {
   {
     ?eventabolissionuri a gont:MunicipalityChangeEvent ;
