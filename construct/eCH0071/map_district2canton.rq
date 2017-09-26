@@ -16,11 +16,11 @@ PREFIX gont: <https://gont.ch/>
 INSERT { GRAPH <http://example.org/inference> {
   ?disturi gont:canton ?cantonuri
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   ?disturi a gont:DistrictEntityVersion;
   eCH-0071:cantonId ?cantonid .
 
   ?cantonuri a gont:Canton;
   gont:id ?cantonid .
 
-}
+}}

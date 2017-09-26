@@ -19,11 +19,11 @@ PREFIX gont: <https://gont.ch/>
 INSERT { GRAPH <http://example.org/inference> {
   ?munuri gont:abolitionMode ?municipalityAbolitionModeUri .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   ?munuri a gont:MunicipalityVersion;
     eCH-0071:municipalityAbolitionModeId ?municipalityAbolitionMode .
   
   ?municipalityAbolitionModeUri a skos:Concept ;
     skos:notation ?municipalityAbolitionMode .
   
-}
+}}

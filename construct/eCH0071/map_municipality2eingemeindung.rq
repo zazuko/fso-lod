@@ -16,7 +16,7 @@ PREFIX gont: <https://gont.ch/>
 INSERT { GRAPH <http://example.org/inference> {
  ?eventuri a eCH-0071:EingemeindungEvent ;
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   # Politische Gemeinde
   ?formermunuri a gont:MunicipalityVersion ;
     eCH-0071:municipalityAbolitionNumber  ?eventid ;
@@ -38,4 +38,4 @@ WHERE {
   ?eventuri a gont:ChangeEvent ;
     gont:id ?eventid .
  
-}
+}}

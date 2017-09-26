@@ -17,7 +17,7 @@ PREFIX gont: <https://gont.ch/>
 INSERT { GRAPH <http://example.org/inference> {
   ?munuri gont:canton ?cantonuri
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   
   ?cantonuri a gont:Canton;
   gont:cantonAbbreviation ?cantonid .
@@ -25,4 +25,4 @@ WHERE {
   ?munuri a gont:MunicipalityVersion;
   eCH-0071:cantonAbbreviation ?cantonid . 
 
-}
+}}

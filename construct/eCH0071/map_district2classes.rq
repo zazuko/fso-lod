@@ -15,7 +15,7 @@ INSERT { GRAPH <http://example.org/inference> {
   ?districtlesscanton a gont:DistrictlessCanton .
   ?districtfreearea a gont:DistrictFreeArea .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   # Bezirk
   ?district a gont:DistrictEntity ;
     eCH-0071:districtEntryModeId 15 .
@@ -28,4 +28,4 @@ WHERE {
   ?districtfreearea a gont:DistrictEntity ;
     eCH-0071:districtEntryModeId 17 .
 
-}
+}}

@@ -11,7 +11,7 @@ INSERT { GRAPH <http://example.org/inference> {
    ?munuri owl:sameAs ?dbpuri ;
 }}
 WHERE
-{
+{ GRAPH <http://example.org/fso> {
    SERVICE <http://dbpedia.org/sparql>
    {
      ?dbpuri dbo:country dbr:Switzerland ;
@@ -23,4 +23,4 @@ WHERE
 # This should no longer be necessary as we do it on the Municipality, not on HistoryMunicipality
 #   MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
 
-}
+}}

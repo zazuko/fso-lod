@@ -19,11 +19,11 @@ PREFIX gont: <https://gont.ch/>
 INSERT { GRAPH <http://example.org/inference> {
   ?disturi gont:admissionMode ?districtAdmissionModeUri .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   ?disturi a gont:DistrictEntityVersion;
   	eCH-0071:districtAdmissionModeId ?districtAdmissionMode .
   
   ?districtAdmissionModeUri a skos:Concept ;
   	skos:notation ?districtAdmissionMode .
   
-}
+}}

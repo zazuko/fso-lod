@@ -14,10 +14,10 @@ INSERT { GRAPH <http://example.org/inference> {
   ?munuri gont:municipalityVersion ?histmunuri .
   ?histmunuri gont:municipality ?munuri .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   ?histmunuri a gont:MunicipalityVersion ;
     eCH-0071:municipalityId ?municipalityId .
 
   ?munuri a gont:Municipality ;
     gont:id ?municipalityId .
-}
+}}

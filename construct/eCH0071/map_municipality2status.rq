@@ -18,10 +18,10 @@ PREFIX gont: <https://gont.ch/>
 INSERT { GRAPH <http://example.org/inference> {
   ?munuri eCH-0071:municipalityStatus ?municipalityStatusUri .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
     ?munuri a gont:MunicipalityVersion;
     eCH-0071:municipalityStatusId ?municipalityStatusId .
  
     ?municipalityStatusUri a skos:Concept ;
     skos:notation ?municipalityStatusId .
-}
+}}

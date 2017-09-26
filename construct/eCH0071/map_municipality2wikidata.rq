@@ -7,7 +7,7 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 INSERT { GRAPH <http://example.org/inference> {
   ?municipality rdfs:seeAlso ?wdr 
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   SERVICE <https://query.wikidata.org/sparql> { 
     ?wdr wdt:P771 ?smunid.  
   }
@@ -19,4 +19,4 @@ WHERE {
   ?municipality a gont:PoliticalMunicipality .
   ?municipality dct:identifier ?munid .
  # BIND (str(?munid) AS ?smunid)
-}
+}}

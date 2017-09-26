@@ -15,7 +15,7 @@ INSERT { GRAPH <http://example.org/inference> {
   ?gemeindefrei a gont:MunicipalityFreeArea .
   ?seeanteil a gont:CantonalLakePortion .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   # Politische Gemeinde
   #?gemeinde a gont:Municipality ;
    # eCH-0071:municipalityEntryModeId 11 .
@@ -28,4 +28,4 @@ WHERE {
   ?seeanteil a gont:Municipality ;
     eCH-0071:municipalityEntryModeId 13 .
 
-}
+}}

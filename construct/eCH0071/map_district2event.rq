@@ -17,7 +17,7 @@ INSERT { GRAPH <http://example.org/inference> {
   ?histdistadmissionuri gont:admissionEvent ?eventadmissionuri .
 
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   {
     ?eventabolissionuri a gont:DistrictChangeEvent ;
       gont:id ?eventid .
@@ -34,4 +34,4 @@ WHERE {
       eCH-0071:districtAdmissionNumber ?eventid .
   }
 
-}
+}}

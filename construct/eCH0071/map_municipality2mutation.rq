@@ -12,7 +12,7 @@ INSERT { GRAPH <http://example.org/inference> {
   ?munuri eCH-0071:municipalityPredecessor ?oldmunuri .
   ?oldmunuri eCH-0071:municipalitySuccessor ?munuri .
 }}
-WHERE {
+WHERE { GRAPH <http://example.org/fso> {
   {
     ?munuri a gont:MunicipalityVersion;
       eCH-0071:municipalityAdmissionNumber ?municipalityAdmissionNumber .
@@ -20,4 +20,4 @@ WHERE {
 #    MINUS { ?munuri eCH-0071:municipalityAdmissionNumber 1000 . } 
   }
   ?oldmunuri  eCH-0071:municipalityAbolitionNumber ?municipalityAdmissionNumber .
-}
+}}
