@@ -21,4 +21,6 @@ sparqlu construct/eCH0071/map_municipality2munid.rq $FUSEKI_UPDATE
 sparqlu construct/eCH0071/map_municipality2classes.rq $FUSEKI_UPDATE
 sparqlu construct/eCH0071/map_municipality2classes_hack.rq $FUSEKI_UPDATE
 sparqlu construct/eCH0071/map_district2classes.rq $FUSEKI_UPDATE
+sparqlu construct/eCH0071/map_municipality2swisstopo.rq $FUSEKI_UPDATE
+sparqlu construct/eCH0071/map_municipality2wikidata.rq $FUSEKI_UPDATE
 #sparqlu construct/eCH0071/map_municipality2eingemeindung.rq $FUSEKI_UPDATE
