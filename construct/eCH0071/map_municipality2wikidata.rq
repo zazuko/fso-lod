@@ -12,12 +12,10 @@ WHERE { GRAPH <http://example.org/fso> {
   SERVICE <https://query.wikidata.org/sparql> { 
     ?wdr wdt:P771 ?smunid.  
   }
-     BIND (xsd:integer(?smunid) AS ?munid )
+  BIND (xsd:integer(?smunid) AS ?munid )
 
-  #  ?municipalityversion a gont:MunicipalityVersion ;
-  #gont:municipality ?municipality .
-  #MINUS { ?municipalityversion gont:abolitionEvent ?abolitionEvent . }
-  ?municipality a gont:PoliticalMunicipality .
-  ?municipality dct:identifier ?munid .
- # BIND (str(?munid) AS ?smunid)
+  ?municipality a gont:Municipality ;
+    # This restricts to "PoliticalMunicipality" which is not set yet here
+    eCH-0071:municipalityEntryModeId 11 ; 
+    dct:identifier ?munid .
 }}
