@@ -13,13 +13,14 @@ WHERE
 { GRAPH <http://example.org/fso> {
    SERVICE <http://dbpedia.org/sparql>
    {
-     ?dbpuri dbo:country dbr:Switzerland ;
-     dbp:municipalityCode ?municipalityId .
+      ?dbpuri dbo:country dbr:Switzerland ;
+        dbo:municipalityCode ?munid .
+      
+      # apparently also a string now
+      BIND (xsd:integer(?munid) AS ?municipalityId )
    }
 
-   ?munuri a gont:Municipality;
-       gont:id ?municipalityId .
-# This should no longer be necessary as we do it on the Municipality, not on HistoryMunicipality
-#   MINUS { ?munuri eCH-0071:municipalityAbolitionNumber ?municipalityAbolisionNumber . }
+  ?munuri a gont:Municipality ;
+    gont:id ?municipalityId .
 
 }}
