@@ -3,3 +3,6 @@ input/meta/index.html
 node_modules
 .idea
 .DS_Store
+tmp
+*.xml
+package-lock.json
