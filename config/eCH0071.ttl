@@ -15,13 +15,19 @@
 @prefix gont: <https://gont.ch/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
+@prefix carml: <http://carml.taxonic.com/carml/> .
 
 <#Canton>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+     rml:source [
+      a carml:Stream ;
+	  carml:declaresNamespace [
+        carml:namespacePrefix "eCH-0071" ;
+        carml:namespaceName "http://www.ech.ch/xmlns/eCH-0071/1" ;
+      ] ;
+] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/cantons/canton"
+    rml:iterator "/eCH-0071:nomenclature/cantons/canton";
   ]; 
 
   rr:subjectMap [
@@ -32,14 +38,14 @@
     rr:predicateObjectMap [
     rr:predicate gont:cantonAbbreviation;
     rr:objectMap [
-      rml:reference "/canton/cantonAbbreviation";
+      rml:reference "cantonAbbreviation";
     ]
  ] ;
 
     rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/canton/cantonId";
+      rml:reference "cantonId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -47,7 +53,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/canton/cantonId";
+      rml:reference "cantonId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -55,14 +61,14 @@
     rr:predicateObjectMap [
     rr:predicate gont:longName;
     rr:objectMap [
-      rml:reference "/canton/cantonLongName";
+      rml:reference "cantonLongName";
     ]
  ] ;
 
    rr:predicateObjectMap [
     rr:predicate gont:date;
     rr:objectMap [
-      rml:reference "/canton/cantonDateOfChange";
+      rml:reference "cantonDateOfChange";
       rr:datatype xsd:date ;
     ]
  ] .
@@ -71,9 +77,11 @@
 
 <#District>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+     rml:source [
+      a carml:Stream ;
+] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/districts/district"
+   rml:iterator "/eCH-0071:nomenclature/districts/district";
   ]; 
 
   rr:subjectMap [
@@ -84,7 +92,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/district/districtId";
+      rml:reference "districtId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -92,7 +100,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/district/districtId";
+      rml:reference "districtId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -100,7 +108,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtEntryModeId;
     rr:objectMap [
-      rml:reference "/district/districtEntryMode";
+      rml:reference "districtEntryMode";
       rr:datatype xsd:integer ;
     ]
   ] ;
@@ -111,7 +119,7 @@
       rr:parentTriplesMap <#DistrictEntityVersion>;
       rr:joinCondition [
         rr:child "districtHistId";
-        rr:parent "/district/districtHistId";
+        rr:parent "districtHistId";
       ];
     ];
   ].
@@ -120,10 +128,11 @@
 # DistrictEntityVersion
 
 <#DistrictEntityVersion>
-  rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+rml:logicalSource [
+  rml:source [
+      a carml:Stream ;] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/districts/district"
+   rml:iterator "/eCH-0071:nomenclature/districts/district";
   ]; 
 
   rr:subjectMap [
@@ -134,7 +143,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/district/districtHistId";
+      rml:reference "districtHistId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -142,7 +151,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/district/districtHistId";
+      rml:reference "districtHistId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -150,7 +159,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:cantonId;
     rr:objectMap [
-      rml:reference "/district/cantonId";
+      rml:reference "cantonId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -158,7 +167,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtId;
     rr:objectMap [
-      rml:reference "/district/districtId";
+      rml:reference "districtId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -166,21 +175,21 @@
   rr:predicateObjectMap [
     rr:predicate gont:longName;
     rr:objectMap [
-      rml:reference "/district/districtLongName";
+      rml:reference "districtLongName";
     ]
  ] ;
 
   rr:predicateObjectMap [
     rr:predicate gont:shortName;
     rr:objectMap [
-      rml:reference "/district/districtShortName";
+      rml:reference "districtShortName";
     ]
  ] ;
 
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtAdmissionNumber;
     rr:objectMap [
-      rml:reference "/district/districtAdmissionNumber";
+      rml:reference "districtAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -188,7 +197,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtAdmissionModeId;
     rr:objectMap [
-      rml:reference "/district/districtAdmissionMode";
+      rml:reference "districtAdmissionMode";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -196,7 +205,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtAdmissionDate;
     rr:objectMap [
-      rml:reference "/district/districtAdmissionDate";
+      rml:reference "districtAdmissionDate";
       rr:datatype xsd:date ;
     ]
  ] ;
@@ -204,7 +213,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtAbolitionNumber;
     rr:objectMap [
-      rml:reference "/district/districtAbolitionNumber";
+      rml:reference "districtAbolitionNumber";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -212,7 +221,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtAbolitionModeId;
     rr:objectMap [
-      rml:reference "/district/districtAbolitionMode";
+      rml:reference "districtAbolitionMode";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -220,7 +229,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtAbolitionDate;
     rr:objectMap [
-      rml:reference "/district/districtAbolitionDate";
+      rml:reference "districtAbolitionDate";
       rr:datatype xsd:date ;
     ]
  ] ;
@@ -228,7 +237,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtDateOfChange;
     rr:objectMap [
-      rml:reference "/district/districtDateOfChange";
+      rml:reference "districtDateOfChange";
       rr:datatype xsd:date ;
     ]
  ] .
@@ -237,9 +246,11 @@
 
  <#historyMunicipality>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+    rml:source [
+      a carml:Stream ;
+] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality"
+   rml:iterator "/eCH-0071:nomenclature/municipalities/municipality";
   ]; 
 
   rr:subjectMap [
@@ -250,7 +261,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/municipality/historyMunicipalityId";
+      rml:reference "historyMunicipalityId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -258,7 +269,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/municipality/historyMunicipalityId";
+      rml:reference "historyMunicipalityId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -266,7 +277,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:districtHistId;
     rr:objectMap [
-      rml:reference "/municipality/districtHistId";
+      rml:reference "districtHistId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -274,14 +285,14 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:cantonAbbreviation;
     rr:objectMap [
-      rml:reference "/municipality/cantonAbbreviation";
+      rml:reference "cantonAbbreviation";
     ]
  ] ;
 
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityId;
     rr:objectMap [
-      rml:reference "/municipality/municipalityId";
+      rml:reference "municipalityId";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -289,21 +300,21 @@
   rr:predicateObjectMap [
     rr:predicate gont:longName;
     rr:objectMap [
-      rml:reference "/municipality/municipalityLongName";
+      rml:reference "municipalityLongName";
     ]
  ] ;
 
   rr:predicateObjectMap [
     rr:predicate gont:shortName;
     rr:objectMap [
-      rml:reference "/municipality/municipalityShortName";
+      rml:reference "municipalityShortName";
     ]
  ] ;
 
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityStatusId;
     rr:objectMap [
-      rml:reference "/municipality/municipalityStatus";
+      rml:reference "municipalityStatus";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -311,7 +322,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityAdmissionNumber;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAdmissionNumber";
+      rml:reference "municipalityAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -319,7 +330,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityAdmissionModeId;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAdmissionMode";
+      rml:reference "municipalityAdmissionMode";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -327,7 +338,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityAdmissionDate;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAdmissionDate";
+      rml:reference "municipalityAdmissionDate";
       rr:datatype xsd:date ;
 
     ]
@@ -336,7 +347,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityAbolitionNumber;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAbolitionNumber";
+      rml:reference "municipalityAbolitionNumber";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -344,7 +355,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityAbolitionModeId;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAbolitionMode";
+      rml:reference "municipalityAbolitionMode";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -352,7 +363,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityAbolitionDate;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAbolitionDate";
+      rml:reference "municipalityAbolitionDate";
       rr:datatype xsd:date ;
     ]
  ] ;
@@ -360,7 +371,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityDateOfChange;
     rr:objectMap [
-      rml:reference "/municipality/municipalityDateOfChange";
+      rml:reference "municipalityDateOfChange";
       rr:datatype xsd:date ;
     ]
  ] .
@@ -369,9 +380,11 @@
 
  <#Municipality>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+     rml:source [
+      a carml:Stream ;
+] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality"
+   rml:iterator "/eCH-0071:nomenclature/municipalities/municipality";
   ]; 
 
   rr:subjectMap [
@@ -384,7 +397,7 @@
   rr:predicateObjectMap [
     rr:predicate eCH-0071:municipalityEntryModeId;
     rr:objectMap [
-      rml:reference "/municipality/municipalityEntryMode";
+      rml:reference "municipalityEntryMode";
       rr:datatype xsd:integer ;
     ]
   ] ;
@@ -392,7 +405,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/municipality/municipalityId";
+      rml:reference "municipalityId";
       rr:datatype xsd:integer ;
     ]
   ];
@@ -400,7 +413,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/municipality/municipalityId";
+      rml:reference "municipalityId";
       rr:datatype xsd:integer ;
     ]
   ].
@@ -409,9 +422,11 @@
 
  <#MunicipalityEvent>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+    rml:source [
+      a carml:Stream ;
+] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/municipalities/municipality"
+   rml:iterator "/eCH-0071:nomenclature/municipalities/municipality";
   ]; 
 
   rr:subjectMap [
@@ -422,7 +437,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:date;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAdmissionDate";
+      rml:reference "municipalityAdmissionDate";
       rr:datatype xsd:date ;
     ]
  ] ;
@@ -430,7 +445,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAdmissionNumber";
+      rml:reference "municipalityAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -438,7 +453,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/municipality/municipalityAdmissionNumber";
+      rml:reference "municipalityAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
  ] .
@@ -447,9 +462,11 @@
 
  <#DistrictEvent>
   rml:logicalSource [
-    rml:source "input/eCH0071/eCH0071_170402.xml";
+     rml:source [
+      a carml:Stream ;
+] ;
     rml:referenceFormulation ql:XPath;
-    rml:iterator "/eCH-0071:nomenclature/districts/district"
+   rml:iterator "/eCH-0071:nomenclature/districts/district";
   ]; 
 
   rr:subjectMap [
@@ -460,7 +477,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:date;
     rr:objectMap [
-      rml:reference "/district/districtAdmissionDate";
+      rml:reference "districtAdmissionDate";
       rr:datatype xsd:date ;
     ]
  ] ;
@@ -468,7 +485,7 @@
   rr:predicateObjectMap [
     rr:predicate gont:id;
     rr:objectMap [
-      rml:reference "/district/districtAdmissionNumber";
+      rml:reference "districtAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
  ] ;
@@ -476,7 +493,7 @@
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
     rr:objectMap [
-      rml:reference "/district/districtAdmissionNumber";
+      rml:reference "districtAdmissionNumber";
       rr:datatype xsd:integer ;
     ]
  ] .
