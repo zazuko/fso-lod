@@ -16,7 +16,7 @@
     "fetch-xml": "curl -L https://www.bfs.admin.ch/bfsstatic/dam/assets/4924499/master -o tmp/eCH0071.zip && unzip -o tmp/eCH0071.zip eCH0071_*.xml && mv eCH0071_*.xml tmp/",
     "fetch-carml": "mkdir -p tmp/lib && curl -s -L https://github.com/netage/carml-cli/releases/download/cli-0.0.6/cli-0.0.6-SNAPSHOT-jar-with-dependencies.jar -o tmp/lib/carml-cli.jar",
     "convert-xml": "JVM_ARGS=-Xmx2G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/eCH0071_*.xml -m config/eCH0071.ttl -of nt -o target/complete.nt",
-    "tdb-load": "tdbloader --loc=target/tdb --graph=http://example.org/fso target/complete.nt input/eCH0071/codes.ttl",
+    "tdb-load": "tdbloader --loc=target/tdb --graph=http://example.org/fso target/complete.nt target/void.ttl input/eCH0071/codes.ttl",
     "tdb-query": "JVM_ARGS=-Xmx3G ./scripts/tdb-query.sh",
     "tdb-dump": "./scripts/tdb-dump.sh",
     "validate-riot": "riot --validate target/everything.nt.gz",
