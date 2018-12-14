@@ -37,6 +37,7 @@
     dcterms:source <eCH0071-Dist>;
     dcterms:issued "%%DATEISSUED%%"^^xsd:date; # date of publication of the source
     dcterms:created "%%DATECREATED%%"^^xsd:dateTime;
+    schema:validFrom "%%VALIDFROM%%"^^xsd:date;
     doap:repository [
         a doap:GitRepository ;
         doap:browse <https://github.com/zazuko/fso-lod> ;
