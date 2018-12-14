@@ -1,5 +1,6 @@
 #!/bin/sh
 # some INSERTs
+tdbupdate --loc=target/tdb --update=construct/eCH0071/map_canton2cantonid.rq
 tdbupdate --loc=target/tdb --update=construct/eCH0071/map_canton2canton.rq
 tdbupdate --loc=target/tdb --update=construct/eCH0071/map_district2canton.rq
 tdbupdate --loc=target/tdb --update=construct/eCH0071/map_district2code.rq

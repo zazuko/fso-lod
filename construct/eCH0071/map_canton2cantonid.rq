@@ -1,0 +1,17 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX eCH-0071: <http://www.ech.ch/xmlns/eCH-0071/1/> 
+PREFIX gont: <https://gont.ch/> 
+
+
+INSERT { GRAPH <http://example.org/inference> {
+  ?sameAsUri owl:sameAs ?cantonuri
+}}
+WHERE { GRAPH <http://example.org/fso> {
+
+  ?cantonuri a gont:Canton;
+    gont:id ?cantonid .
+  BIND(URI(CONCAT("http://classifications.data.admin.ch/canton/", STR(?cantonid))) AS ?sameAsUri)
+
+}}
