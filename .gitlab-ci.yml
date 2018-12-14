@@ -1,0 +1,34 @@
+image: zazukoians/node-java-jena
+before_script:
+  - npm install
+
+
+# stages
+stages:
+- build
+- post
+
+# jobs
+
+build_all_job:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - target/everything.nt.gz
+    expire_in: 1 day
+
+post_test_job:
+  stage: post
+#  only:
+#    - develop
+  script:
+    - npm run post-integ-s3
+
+post_prod_job:
+  stage: post
+  only:
+    - tags
+  script:
+    - npm run post-prod-s3
