@@ -23,7 +23,7 @@
     "void-timestamp": "./scripts/void-timestamp.sh",
     "post-integ-s3": "ENDPOINT=http://data.zazuko.com/lindas GRAPH=https://linked.opendata.swiss/graph/eCH-0071 STORE_USER=$STORE_USER_INTEG STORE_PASSWORD=$STORE_PASSWORD_INTEG ./scripts/store-s3.sh",
     "post-prod-s3": "ENDPOINT=https://lindas-data.ch:8443/lindas GRAPH=https://linked.opendata.swiss/graph/eCH-0071 STORE_USER=$STORE_USER_PROD STORE_PASSWORD=$STORE_PASSWORD_PROD ./scripts/store-s3.sh",
-    "build": "npm-run-all clean fetch-carml fetch-xml convert-xml tdb-load tdb-query tdb-dump validate-riot",
-    "build-local": "npm-run-all clean convert-xml tdb-load tdb-query tdb-dump validate-riot"
+    "build": "npm-run-all clean fetch-carml fetch-xml convert-xml void-timestamp tdb-load tdb-query tdb-dump validate-riot",
+    "build-local": "npm-run-all clean convert-xml void-timestamp tdb-load tdb-query tdb-dump validate-riot"
   }
 }

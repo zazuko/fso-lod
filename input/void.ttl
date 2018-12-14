@@ -1,0 +1,74 @@
+@base <http://lod.opentransportdata.swiss/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix wv: <http://vocab.org/waiver/terms/norms> .        
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix schema: <http://schema.org/>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+
+
+<.well-known/void> a void:DatasetDescription;
+    foaf:topic <dataset/eCH0071> .
+
+##
+## Datasets
+##
+
+<dataset/eCH0071> a void:Dataset, dcat:Dataset;
+    foaf:homepage <http://data.admin.ch/>;
+    foaf:page <https://www.bfs.admin.ch/bfs/de/home/grundlagen/amtl-gemeindeverzeichnis/historisiertes-gemeindeverzeichnis.html>;
+    foaf:page <https://www.bfs.admin.ch/bfs/de/home/grundlagen/amtl-gemeindeverzeichnis/historisiertes-gemeindeverzeichnis.assetdetail.343643.html>;
+    dcterms:title "Historisiertes Gemeindeverzeichnis"@de;
+    dcterms:title "Liste historisée des communes"@fr;
+    dcterms:title "Elenco storicizzato dei Comuni"@it;
+    dcterms:title "Historicized Municipality Register"@en;
+    dcterms:description "The Historicized Municipality Index is currently the largest available dataset listing all Swiss municipalities and their development over time. Now also available as Linked Data in RDF"@en ;
+    dcterms:description "Das Bundesamt für Statistik pflegt die Liste der Gemeinden in der Schweiz im Laufe der Zeit. Das bisher als XML und CSV publizierte Gemeindeverzeichnis ist nun auch als Linked Data verfügbar. Jede Gemeinde und jede historische Version der Gemeinde hat entsprechende URIs und kann somit eindeutig referenziert werden."@de ;
+    dcterms:creator <org/Zazuko>;
+    dcterms:publisher  <org/FSO>;
+    dcterms:source <eCH0071-Dist>;
+    dcterms:issued "%%DATEISSUED%%"^^xsd:date; # date of publication of the source
+    dcterms:created "%%DATECREATED%%"^^xsd:dateTime;
+    doap:repository [
+        a doap:GitRepository ;
+        doap:browse <https://github.com/zazuko/fso-lod> ;
+        doap:location <https://github.com/zazuko/fso-lod.git> 
+    ] ;
+    void:sparqlEndpoint <http://data.admin.ch/sparql>;
+    void:dataDump <https://github.com/zazuko/fso-lod/releases/download/0.0.7/eCH0071-final.nt>;
+    void:exampleResource <http://classifications.data.admin.ch/municipality/371> ;
+    void:exampleResource <http://classifications.data.admin.ch/canton/BE> ;
+    void:exampleResource <http://classifications.data.admin.ch/districtentryversion/10284> ;
+    .
+
+<dataset/eCH0071-Dist> a dcat:Dataset ;
+    dcterms:title "Historisiertes Gemeindeverzeichnis"@de;
+    dcterms:title "Liste historisée des communes"@fr;
+    dcterms:title "Elenco storicizzato dei Comuni"@it;
+    dcat:keyword "Gemeinde"@de,"Kanton"@de ,"Bezirk"@de ;
+    dcterms:publisher <org/FSO> ;
+#    dcterms:distribution <eCH0071-Dist-xml> ;
+    .
+
+<org/FSO> a foaf:Organization, schema:GovernmentOrganization;
+    rdfs:label "Swiss Federal Statistical Office (FSO)"@en;
+    rdfs:label "Bundesamt für Statistik (BFS)"@de;
+    rdfs:label "Ufficio federale di statistica (UST)"@it;
+    rdfs:label "Office fédéral de la statistique (OFS)"@fr;
+    foaf:homepage <http://www.bfs.admin.ch/>;
+    owl:sameAs <http://dbpedia.org/resource/Federal_Statistical_Office_%28Switzerland%29> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q285453> 
+    .
+
+<org/Zazuko> a foaf:Organization, schema:Corporation;
+    schema:name "Zazuko GmbH";
+    schema:url <http://www.zazuko.com/>
+    .
