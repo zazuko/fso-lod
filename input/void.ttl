@@ -44,7 +44,7 @@
         doap:location <https://github.com/zazuko/fso-lod.git> 
     ] ;
     void:sparqlEndpoint <http://data.admin.ch/sparql>;
-    void:dataDump <https://github.com/zazuko/fso-lod/releases/download/0.0.7/eCH0071-final.nt>;
+#    void:dataDump <https://github.com/zazuko/fso-lod/releases/download/0.0.7/eCH0071-final.nt>;
     void:exampleResource <http://classifications.data.admin.ch/municipality/371> ;
     void:exampleResource <http://classifications.data.admin.ch/canton/BE> ;
     void:exampleResource <http://classifications.data.admin.ch/districtentryversion/10284> ;
