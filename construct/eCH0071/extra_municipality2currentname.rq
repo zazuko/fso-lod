@@ -1,0 +1,31 @@
+PREFIX gont: <https://gont.ch/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+
+    ?municipality rdfs:label ?mostRecentName .
+
+} WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
+
+    {   SELECT DISTINCT ?municipality (max(?eventDate) AS ?mostRecentDate)
+        WHERE {
+            
+            ?event a gont:MunicipalityChangeEvent ;
+                gont:date ?eventDate .
+
+            ?versioned gont:admissionEvent ?event ;
+                <https://gont.ch/municipality> ?municipality .
+
+        } GROUP BY ?municipality 
+    }
+    
+    # 371: 3 versions, 171: one version
+    #FILTER( ?municipality IN( <http://classifications.data.admin.ch/municipality/371>, <http://classifications.data.admin.ch/municipality/171>))
+    
+    ?municipality gont:municipalityVersion ?versioned .
+    
+    ?versioned gont:shortName ?mostRecentName ;
+        gont:admissionEvent/gont:date ?mostRecentDate .
+    
+ }} 
