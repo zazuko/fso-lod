@@ -1,0 +1,35 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX gont: <https://gont.ch/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?histmunId ?districtId ?canton ?munId ?shortName ?longName ?admissionEvent ?admissionMode ?admissionDate ?abolitionEvent ?abolitionMode ?abolitionDate
+FROM <https://linked.opendata.swiss/graph/eCH-0071> WHERE {
+
+    ?munversion a gont:MunicipalityVersion ;
+
+    dct:identifier ?histmunId ;
+    gont:district/dct:identifier ?districtId ;
+    gont:canton/gont:cantonAbbreviation ?canton ;
+    gont:municipality/dct:identifier ?munId ;
+    gont:shortName ?shortName ;
+    # gont:longName ?longName ;
+    ## entrymode -> skipped, this is a different class in RDF (Gemeindefreie Gebiete etc.)
+    ## status -> provisorisch/definitiv: I think I never mapped that as I did not see what for
+    gont:admissionEvent/dct:identifier ?admissionEvent ;
+    gont:admissionMode/skos:notation ?admissionMode ;
+    gont:admissionEvent/gont:date ?admissionDate .
+    # TODO date of change
+  
+    OPTIONAL {
+        ?munversion gont:abolitionEvent/dct:identifier ?abolitionEvent ;
+            gont:abolitionMode/skos:notation ?abolitionMode ;
+            gont:abolitionEvent/gont:date ?abolitionDate . 
+    }
+  
+    ## if you want to get rid of the data type xsd:integer you
+    ## can bind a variable like this to cast it to a string:
+    # BIND( STR(?districtId) AS ?districtIdStr )    
+} # LIMIT 100
