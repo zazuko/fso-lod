@@ -13,11 +13,11 @@ PREFIX lac: <https://schema.ld.admin.ch/>
 # This query lists the active municipalities in Switzerland at the time of query execution (and dataset version)
 INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
 	?munuri a schema:AdministrativeArea, lac:Municipality ;
-    	schema:containedInPlace ?district ;
+    	#schema:containedInPlace ?district ;
     	schema:containedInPlace ?cantonUri ;
     	schema:identifier ?GDENR ;
     	schema:name ?GDENAME ;
-    	owl:sameAs ?munversion ;
+    	#owl:sameAs ?munversion ;
     	geonames:featureCode geonames:A.ADM3 .
 
 }}

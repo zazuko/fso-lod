@@ -12,9 +12,9 @@ PREFIX schema: <http://schema.org/>
 INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
   ?munuri a schema:AdministrativeArea, lac:AbolishedMunicipality ;
     schema:name ?GDENAME ;
-    schema:containedInPlace ?district ;
+    #schema:containedInPlace ?district ;
     schema:containedInPlace ?canton ;
-    owl:sameAs ?munVersion ;
+    #owl:sameAs ?munVersion ;
    	schema:identifier ?GDENR ;
     geonames:featureCode geonames:A.ADM3 .
 }}
