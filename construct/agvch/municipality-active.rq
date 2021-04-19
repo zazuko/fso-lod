@@ -1,0 +1,56 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX gont: <https://gont.ch/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX lac: <https://schema.ld.admin.ch/>
+
+
+# This query lists the active municipalities in Switzerland at the time of query execution (and dataset version)
+INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
+	?munuri a schema:AdministrativeArea, lac:Municipality ;
+    	schema:containedInPlace ?district ;
+    	schema:containedInPlace ?cantonUri ;
+    	schema:identifier ?GDENR ;
+    	schema:name ?GDENAME ;
+    	owl:sameAs ?munversion ;
+    	geonames:featureCode geonames:A.ADM3 .
+
+}}
+WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
+
+    ?munversion a gont:MunicipalityVersion ;
+
+    dct:identifier ?histmunId ;
+    gont:district ?district ;
+    gont:canton ?canton ;
+    gont:district/dct:identifier ?GDEBZNR ;
+    gont:district/gont:longName ?GDEBZNA ;
+    gont:canton/gont:cantonAbbreviation ?GDEKT ;
+    gont:canton/dct:identifier ?cantonId ;
+    gont:canton/gont:longName ?GDEKTNA ;
+    gont:municipality/dct:identifier ?GDENR ;
+    gont:shortName ?GDENAMK ;
+    gont:longName ?GDENAME ;
+    gont:admissionEvent/dct:identifier ?admissionEvent ;
+    gont:admissionMode/skos:notation ?admissionMode ;
+    gont:admissionEvent/gont:date ?GDEMUTDAT .
+  
+  	# Minus those who do not exist anymore
+    MINUS { ?munversion gont:abolitionEvent ?abolitionEvent . }
+  
+  	# If you are curious which municipalities have a different name in long or short form, enable this line
+    #FILTER ( ?GDENAME != ?GDENAMK )
+  
+  	# Minus the lakes
+    MINUS { ?munversion gont:municipality/rdf:type gont:CantonalLakePortion . }
+    
+    BIND( URI(CONCAT( "https://register.ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
+    BIND( URI(CONCAT( "https://register.ld.admin.ch/canton/", STR(?cantonId))) AS ?cantonUri )
+
+
+}}

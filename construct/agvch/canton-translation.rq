@@ -1,0 +1,31 @@
+BASE <https://register.ld.admin.ch/canton/>
+PREFIX schema: <http://schema.org/>
+
+INSERT DATA { GRAPH <https://lindas.admin.ch/fso/agvch> {
+<1> schema:name "Zürich"@de, "Zurich"@fr, "Zurigo"@it, "Zurich"@en .
+<2> schema:name "Bern"@de, "Berne"@fr, "Berna"@it, "Bern"@en .
+<3> schema:name "Luzern"@de, "Lucerne"@fr, "Lucerna"@it, "Lucerne"@en .
+<4> schema:name "Uri"@de, "Uri"@fr,"Uri"@it,"Uri"@en .
+<5> schema:name "Schwyz"@de, "Schwytz"@fr, "Svitto"@it, "Schwyz"@en .
+<6> schema:name "Obwalden"@de, "Obwald"@fr, "Obvaldo"@it, "Obwalden"@en.
+<7> schema:name "Nidwalden"@de, "Nidwald"@fr, "Nidvaldo"@it, "Nidwalden"@en .
+<8> schema:name "Glarus"@de, "Glaris"@fr, "Glarona"@it, "Glarus"@en .
+<9> schema:name "Zug"@de, "Zoug"@fr, "Zugo"@it, "Zug"@en .
+<10> schema:name "Freiburg"@de, "Fribourg"@fr, "Friburgo"@it, "Fribourg"@en .
+<11> schema:name "Solothurn"@de, "Soleure"@fr, "Soletta"@it, "Solothurn"@en .
+<12> schema:name "Basel-Stadt"@de, "Bâle-Ville"@fr, "Basilea Città"@it, "Basel Stadt"@en .
+<13> schema:name "Basel-Landschaft"@de, "Bâle-Campagne"@fr, "Basilea Campagna"@it, "Basel Landschaft"@en .
+<14> schema:name "Schaffhausen"@de, "Schaffhouse"@fr, "Sciaffusa"@it, "Schaffhausen"@en .
+<15> schema:name "Appenzell Ausserrhoden"@de, "Appenzell Rhodes-Extérieures"@fr, "Appenzello Esterno"@it, "Appenzell Ausserrhoden"@en .
+<16> schema:name "Appenzell Innerrhoden"@de, "Appenzell Rhodes-Intérieures"@fr, "Appenzello Interno"@it, "Appenzell Innerrhoden"@en  .
+<17> schema:name "St. Gallen"@de, "Saint-Gall"@fr, "San Gallo"@it, "St Gallen"@en .
+<18> schema:name "Graubünden"@de, "Grisons"@fr, "Grigioni"@it, "Grischun"@rm .
+<19> schema:name "Aargau"@de, "Argovie"@fr, "Argovia"@it, "Aargau"@en .
+<20> schema:name "Thurgau"@de, "Thurgovie"@fr, "Turgovia"@it, "Thurgau"@en .
+<21> schema:name "Tessin"@de, "Tessin"@fr,"Ticino"@it, "Ticino"@en .
+<22> schema:name "Waadt"@de, "Vaud"@fr, "Vaud"@it, "Vaud"@en .
+<23> schema:name "Wallis"@de, "Valais"@fr, "Vallese"@it, "Valais"@en  .
+<24> schema:name "Neuenburg"@de, "Neuchâtel"@fr, "Neuchâtel"@it, "Neuchâtel"@en .
+<25> schema:name "Genf"@de, "Genève"@fr, "Ginevra"@it, "Geneva"@en .
+<26> schema:name "Jura"@de, "Jura"@fr, "Giura"@it, "Jura"@en .
+}}

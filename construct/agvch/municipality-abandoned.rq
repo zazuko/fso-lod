@@ -1,0 +1,59 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX gont: <https://gont.ch/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX ech71: <http://classifications.data.admin.ch/code/ech0071/>
+PREFIX lac: <https://schema.ld.admin.ch/>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX schema: <http://schema.org/>
+
+INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
+  ?munuri a schema:AdministrativeArea, lac:AbolishedMunicipality ;
+    schema:name ?GDENAME ;
+    schema:containedInPlace ?district ;
+    schema:containedInPlace ?canton ;
+    owl:sameAs ?munVersion ;
+   	schema:identifier ?GDENR ;
+    geonames:featureCode geonames:A.ADM3 .
+}}
+
+WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
+  
+  ?municipality a gont:Municipality ;
+    gont:municipalityVersion ?munVersion .
+  
+  ?munVersion gont:longName ?municipalityName ;
+    gont:abolitionEvent ?abolitionEvent ;
+    gont:district ?district ;
+    gont:canton ?canton ;
+    gont:municipality/dct:identifier ?GDENR ;
+    gont:longName ?GDENAME ;
+
+    # "Aufhebung Gemeinde/Bezirk", should IMO be the only one.
+    # All other codes should still exist as a municipality in some form.
+    # TODO:
+    # 1. Eingemeindung: [A] + [B] → [A+]
+    # a. Art der Aufhebung = Gebietsänderung/Aufhebung GDE (Code 26/29)
+    # b. Art der Aufnahme = Gebietsänderung GDE (Code 26)
+    # 
+    # 2. Gemeindefusion: [A] + [B] → [C]
+    # a. Art der Aufhebung = Aufhebung GDE (Code 29)
+    # b. Art der Aufnahme = Neugründung GDE (Code 21)
+
+    gont:abolitionMode ech71:29 .   
+    
+    ?abolitionEvent gont:date ?abolitionDate .
+    
+    BIND( URI(CONCAT( "https://register.ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
+
+    # This removes those that are still active.  Has to run *after* the active ones are inserted
+    # There might be a better way without materialization first but it works.
+    MINUS {
+      { GRAPH <https://lindas.admin.ch/fso/agvch> {
+        ?munuri a lac:Municipality .
+      }}
+    }
+    
+}}

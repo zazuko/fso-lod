@@ -1,0 +1,34 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX gont: <https://gont.ch/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX lac: <https://schema.ld.admin.ch/>
+
+
+# This query lists the active municipalities in Switzerland at the time of query execution (and dataset version)
+INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
+	?cantonUri a schema:AdministrativeArea, lac:Canton ;
+    schema:identifier ?cantonId ;
+		skos:hiddenLabel ?cantonName ;
+		schema:alternateName ?alternateName ;
+    owl:sameAs ?sameAsUri , ?sameAsUriLc ;
+    geonames:featureCode geonames:A.ADM1 .
+
+}} 
+WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
+
+  ?munversion a gont:Canton ;
+	  gont:longName ?cantonName ;
+    dct:identifier ?cantonId ;
+    gont:cantonAbbreviation ?alternateName .
+    
+  BIND(URI(CONCAT( "https://register.ld.admin.ch/canton/", STR(?cantonId))) AS ?cantonUri )
+  BIND(URI(CONCAT("https://register.ld.admin.ch/canton/", LCASE(?alternateName))) AS ?sameAsUriLc)
+  BIND(URI(CONCAT("https://register.ld.admin.ch/canton/", ?alternateName)) AS ?sameAsUri)
+  
+}}
