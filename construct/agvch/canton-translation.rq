@@ -1,4 +1,4 @@
-BASE <https://register.ld.admin.ch/canton/>
+BASE <https://ld.admin.ch/canton/>
 PREFIX schema: <http://schema.org/>
 
 INSERT DATA { GRAPH <https://lindas.admin.ch/fso/agvch> {

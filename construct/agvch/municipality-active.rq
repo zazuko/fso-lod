@@ -49,8 +49,8 @@ WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
   	# Minus the lakes
     MINUS { ?munversion gont:municipality/rdf:type gont:CantonalLakePortion . }
     
-    BIND( URI(CONCAT( "https://register.ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
-    BIND( URI(CONCAT( "https://register.ld.admin.ch/canton/", STR(?cantonId))) AS ?cantonUri )
+    BIND( URI(CONCAT( "https://ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
+    BIND( URI(CONCAT( "https://ld.admin.ch/canton/", STR(?cantonId))) AS ?cantonUri )
 
 
 }}

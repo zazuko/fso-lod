@@ -46,7 +46,7 @@ WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
     
     ?abolitionEvent gont:date ?abolitionDate .
     
-    BIND( URI(CONCAT( "https://register.ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
+    BIND( URI(CONCAT( "https://ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
 
     # This removes those that are still active.  Has to run *after* the active ones are inserted
     # There might be a better way without materialization first but it works.
