@@ -1,7 +1,10 @@
 #!/bin/sh
+ENDPOINT=${ENDPOINT:=https://stardog.cluster.ldbar.ch/lindas}
+echo "Posting to endpoint: $ENDPOINT"
 curl -n \
      -X PUT \
+     --http1.1 \
      -H Content-Type:application/n-triples \
-     -T target/eCH0071-final.nt \
-     -G https://lindas-data.ch:8443/lindas \
+     -T target/everything.nt  \
+     -G $ENDPOINT \
      --data-urlencode graph=https://linked.opendata.swiss/graph/eCH-0071
