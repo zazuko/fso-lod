@@ -16,7 +16,7 @@ INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
     schema:identifier ?cantonId ;
 		skos:hiddenLabel ?cantonName ;
 		schema:alternateName ?alternateName ;
-    owl:sameAs ?sameAsUri , ?sameAsUriLc ;
+    #owl:sameAs ?sameAsUri , ?sameAsUriLc ;
     geonames:featureCode geonames:A.ADM1 .
 
 }} 
