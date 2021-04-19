@@ -21,6 +21,7 @@
     "tdb-dump": "./scripts/tdb-dump.sh",
     "validate-riot": "riot --validate target/everything.nt.gz",
     "void-timestamp": "./scripts/void-timestamp.sh",
+    "agvch": "./scripts/generate-agvch.sh",
     "post-integ-s3": "ENDPOINT=http://data.zazuko.com/lindas GRAPH=https://linked.opendata.swiss/graph/eCH-0071 STORE_USER=$STORE_USER_INTEG STORE_PASSWORD=$STORE_PASSWORD_INTEG ./scripts/store-s3.sh",
     "post-prod-s3": "ENDPOINT=https://stardog.cluster.ldbar.ch/lindas GRAPH=https://linked.opendata.swiss/graph/eCH-0071 STORE_USER=$STORE_USER_PROD STORE_PASSWORD=$STORE_PASSWORD_PROD ./scripts/store-s3.sh",
     "build": "npm-run-all clean fetch-carml fetch-xml convert-xml void-timestamp tdb-load tdb-query tdb-dump validate-riot",
