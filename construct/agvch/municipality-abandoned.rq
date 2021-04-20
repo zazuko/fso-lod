@@ -13,7 +13,7 @@ INSERT { GRAPH <https://lindas.admin.ch/fso/agvch> {
   ?munuri a schema:AdministrativeArea, lac:AbolishedMunicipality ;
     schema:name ?GDENAME ;
     #schema:containedInPlace ?district ;
-    schema:containedInPlace ?canton ;
+    schema:containedInPlace ?cantonUri ;
     #owl:sameAs ?munVersion ;
    	schema:identifier ?GDENR ;
     geonames:featureCode geonames:A.ADM3 .
@@ -28,6 +28,7 @@ WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
     gont:abolitionEvent ?abolitionEvent ;
     gont:district ?district ;
     gont:canton ?canton ;
+    gont:canton/dct:identifier ?cantonId ;
     gont:municipality/dct:identifier ?GDENR ;
     gont:longName ?GDENAME ;
 
@@ -47,6 +48,8 @@ WHERE { GRAPH <https://linked.opendata.swiss/graph/eCH-0071> {
     ?abolitionEvent gont:date ?abolitionDate .
     
     BIND( URI(CONCAT( "https://ld.admin.ch/municipality/", STR(?GDENR))) AS ?munuri )
+    BIND( URI(CONCAT( "https://ld.admin.ch/canton/", STR(?cantonId))) AS ?cantonUri )
+
 
     # This removes those that are still active.  Has to run *after* the active ones are inserted
     # There might be a better way without materialization first but it works.
